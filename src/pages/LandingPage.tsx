@@ -19,6 +19,8 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useCRM } from '../context/CRMContext';
 
+import bgImage from '../../public/fundo-sala.jpg';
+
 const Hero = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'success'>('idle');
   const { addLead } = useCRM();
@@ -49,7 +51,7 @@ const Hero = () => {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/fundo-sala.jpg"
+          src={bgImage}
           alt="Interior de luxo"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
