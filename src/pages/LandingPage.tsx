@@ -234,57 +234,101 @@ const Hero = () => {
   );
 };
 
-const Services = () => {
-  const services = [
+const Pricing = () => {
+  const plans = [
     {
-      title: "Cozinhas",
-      description: "O coração da casa com ergonomia e materiais de alta resistência.",
-      icon: <Utensils size={32} />,
+      size: "50m²",
+      price: "R$48.750,00",
       image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=600&auto=format&fit=crop"
     },
     {
-      title: "Dormitórios",
-      description: "Refúgios de tranquilidade com organização inteligente e conforto.",
-      icon: <Bed size={32} />,
+      size: "70m²",
+      price: "R$68.250,00",
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=600&auto=format&fit=crop"
+    },
+    {
+      size: "90m²",
+      price: "R$87.750,00",
       image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=600&auto=format&fit=crop"
     },
     {
-      title: "Home Office",
-      description: "Produtividade e foco em ambientes desenhados para o seu fluxo.",
-      icon: <Layout size={32} />,
-      image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=600&auto=format&fit=crop"
+      size: "120m²",
+      price: "R$117.000,00",
+      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=600&auto=format&fit=crop"
+    }
+  ];
+
+  const benefits = [
+    {
+      title: "12x no Boleto",
+      description: "Parcele em até 12 vezes sem juros"
     },
     {
-      title: "Salas de Estar",
-      description: "Elegância e acolhimento para receber e relaxar com estilo.",
-      icon: <Coffee size={32} />,
-      image: "https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80&w=600&auto=format&fit=crop"
+      title: "Entrada p/ 30 dias",
+      description: "Comece a pagar só daqui 30 dias"
+    },
+    {
+      title: "Consultoria Grátis",
+      description: "Atendimento personalizado sem custo"
     }
   ];
 
   return (
-    <section id="services" className="py-24 bg-[#111111]">
+    <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-light mb-4">Soluções <span className="font-bold text-brand-accent">Completas</span></h2>
-          <p className="text-gray-400 max-w-2xl mx-auto font-light">
-            Desenvolvemos projetos personalizados para cada cômodo da sua residência ou empresa.
-          </p>
+          <h2 className="text-3xl md:text-4xl font-light mb-4 text-gray-900">
+            Planos para cada <span className="font-bold text-[#004243]">tamanho de sonho</span>
+          </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+        {/* Plan Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          {plans.map((plan, index) => (
             <motion.div
-              key={service.title}
+              key={plan.size}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group cursor-pointer bg-[#1A1A1A] rounded-2xl p-6 border border-white/5 hover:border-brand-accent/50 transition-colors"
+              className="relative group rounded-3xl overflow-hidden aspect-[3/4]"
             >
-              <div className="text-brand-accent mb-6">{service.icon}</div>
-              <h3 className="text-xl font-medium mb-3">{service.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed font-light">{service.description}</p>
+              <img
+                src={plan.image}
+                alt={`Planta de ${plan.size}`}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/90"></div>
+
+              <div className="absolute inset-0 flex flex-col justify-between p-8">
+                <div className="text-center">
+                  <p className="text-white/80 text-sm font-medium tracking-wide">Plantas de até</p>
+                  <h3 className="text-4xl md:text-5xl font-bold text-white mt-1">{plan.size}</h3>
+                </div>
+
+                <div className="text-left mt-auto">
+                  <p className="text-white/80 text-sm font-medium tracking-wider uppercase mb-1">À partir de:</p>
+                  <p className="text-2xl md:text-3xl font-bold text-white">{plan.price}</p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Benefits Cards */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {benefits.map((benefit, index) => (
+            <motion.div
+              key={benefit.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 + (index * 0.1) }}
+              viewport={{ once: true }}
+              className="bg-[#1a1a1a] rounded-2xl p-6 text-center border border-gray-800"
+            >
+              <h4 className="text-white text-xl font-bold mb-2">{benefit.title}</h4>
+              <p className="text-gray-400 text-sm font-light">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
@@ -442,7 +486,7 @@ export default function LandingPage() {
     <div className="selection:bg-brand-accent selection:text-black">
       <main>
         <Hero />
-        <Services />
+        <Pricing />
         <Portfolio />
         <Testimonials />
       </main>
