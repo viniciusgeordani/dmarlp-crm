@@ -277,45 +277,27 @@ const Pricing = () => {
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-5xl mx-auto px-6">
 
-        {/* Plan Cards */}
+        {/* Plan Cards as Pure Images */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-          {plans.map((plan, index) => (
+          {[
+            { id: '50m', src: '/card-50.png', alt: 'Plano 50m²' },
+            { id: '70m', src: '/card-70.png', alt: 'Plano 70m²' },
+            { id: '90m', src: '/card-90.png', alt: 'Plano 90m²' },
+            { id: '120m', src: '/card-120.png', alt: 'Plano 120m²' }
+          ].map((plan, index) => (
             <motion.div
-              key={plan.size}
+              key={plan.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group aspect-[3/4]"
+              className="flex justify-center"
             >
-              {/* Inner wrapper for image and clipping */}
-              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-lg">
-                <img
-                  src={plan.image}
-                  alt={`Planta de ${plan.size}`}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
-              </div>
-
-              {/* Text components bottom centered */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-center z-10 pb-8">
-                <p className="text-white/90 text-[15px] font-normal tracking-[0.05em] uppercase mb-0 drop-shadow-md">
-                  À PARTIR DE:
-                </p>
-                <p className="text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-lg">
-                  {plan.price}
-                </p>
-              </div>
-
-              {/* Floating Badge for Metrage */}
-              <div className="absolute top-6 -right-4 lg:-right-6 bg-[#004243] text-white w-24 h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center shadow-2xl z-20 transition-transform duration-300 group-hover:scale-110">
-                <span className="text-3xl lg:text-4xl font-black leading-none flex items-start">
-                  {plan.size.replace('m²', '')}
-                  <span className="text-xs lg:text-sm font-bold uppercase mt-1 lg:mt-1.5 ml-0.5">M2</span>
-                </span>
-              </div>
+              <img
+                src={plan.src}
+                alt={plan.alt}
+                className="w-full h-auto object-contain rounded-3xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+              />
             </motion.div>
           ))}
         </div>
