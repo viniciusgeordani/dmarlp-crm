@@ -296,7 +296,7 @@ const Pricing = () => {
               <img
                 src={plan.src}
                 alt={plan.alt}
-                className="w-full h-auto object-contain rounded-3xl shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+                className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500 cursor-pointer drop-shadow-xl"
               />
             </motion.div>
           ))}
