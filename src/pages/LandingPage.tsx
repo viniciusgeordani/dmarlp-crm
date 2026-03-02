@@ -286,26 +286,35 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="relative group rounded-3xl overflow-hidden aspect-[3/4]"
+              className="relative group aspect-[3/4]"
             >
-              <img
-                src={plan.image}
-                alt={`Planta de ${plan.size}`}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/90"></div>
+              {/* Inner wrapper for image and clipping */}
+              <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-lg">
+                <img
+                  src={plan.image}
+                  alt={`Planta de ${plan.size}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent"></div>
+              </div>
 
-              <div className="absolute inset-0 flex flex-col justify-between p-8">
-                <div className="text-center">
-                  <p className="text-white/80 text-sm font-medium tracking-wide">Plantas de até</p>
-                  <h3 className="text-4xl md:text-5xl font-bold text-white mt-1">{plan.size}</h3>
-                </div>
+              {/* Text components bottom centered */}
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-center z-10 pb-10">
+                <p className="text-white/90 text-[13px] md:text-sm font-light tracking-[0.2em] uppercase mb-1 drop-shadow-md">
+                  À partir de:
+                </p>
+                <p className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white tracking-tight drop-shadow-lg">
+                  {plan.price}
+                </p>
+              </div>
 
-                <div className="text-left mt-auto">
-                  <p className="text-white/80 text-sm font-medium tracking-wider uppercase mb-1">À partir de:</p>
-                  <p className="text-2xl md:text-3xl font-bold text-white">{plan.price}</p>
-                </div>
+              {/* Floating Badge for Metrage */}
+              <div className="absolute top-6 -right-3 md:-right-6 bg-[#004243] text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-2xl z-20 transition-transform duration-300 group-hover:scale-110">
+                <span className="text-2xl md:text-3xl font-bold leading-none flex items-start">
+                  {plan.size.replace('m²', '')}
+                  <span className="text-[10px] md:text-xs font-bold uppercase mt-1 md:mt-1.5 ml-0.5">m²</span>
+                </span>
               </div>
             </motion.div>
           ))}
