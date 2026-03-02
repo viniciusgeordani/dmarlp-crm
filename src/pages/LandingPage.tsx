@@ -78,12 +78,19 @@ const Hero = () => {
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 tracking-wide">
-            REFERÊNCIA EM <br />
-            <span className="font-bold">MÓVEIS<br />PLANEJADOS</span>
+          <h1 className="mb-6 tracking-tight text-gray-900">
+            <span className="block text-4xl md:text-5xl lg:text-5xl font-light leading-snug tracking-wide uppercase">
+              Referência em
+            </span>
+            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-1">
+              MÓVEIS
+            </span>
+            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-2">
+              PLANEJADOS
+            </span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-md leading-relaxed font-light">
-            Há mais de 10 anos sendo referência em móveis planejados de alto padrão.
+          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-md leading-relaxed font-light tracking-wide">
+            Há mais de 10 anos sendo referência em <br className="hidden md:block" />móveis planejados de alto padrão.
           </p>
         </motion.div>
 
