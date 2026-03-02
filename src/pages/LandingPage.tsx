@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
+  Menu,
   ChevronRight,
   Phone as PhoneIcon,
   Instagram,
@@ -13,7 +14,8 @@ import {
   Coffee,
   Bed,
   Utensils,
-  LayoutDashboard
+  LayoutDashboard,
+  Building2
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
@@ -66,24 +68,24 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-gray-900 pt-10 lg:pt-0"
+          className="text-white max-w-2xl text-left pl-4 md:pl-12 z-10"
         >
           <div className="mb-8 flex items-center gap-4">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-[#004243]">
+            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-yellow-500">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
             <div className="flex flex-col">
-              <h2 className="text-3xl tracking-[0.3em] font-light leading-none">D'MAR</h2>
-              <p className="text-[#004243] text-xs tracking-[0.4em] uppercase mt-2 font-medium">Planejados</p>
+              <h2 className="text-4xl tracking-[0.4em] font-light leading-none text-white">VALCENTER</h2>
+              <p className="text-yellow-500 text-xs tracking-[0.6em] uppercase mt-2 font-medium">Planejados</p>
             </div>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-light leading-tight mb-6 tracking-wide">
+          <h1 className="text-4xl md:text-5xl lg:text-7xl font-extralight leading-tight mb-8 tracking-wider text-white">
             REFERÊNCIA EM <br />
-            <span className="font-bold">MÓVEIS<br />PLANEJADOS</span>
+            <span className="font-bold tracking-normal">MÓVEIS<br />PLANEJADOS</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-700 max-w-md leading-relaxed font-light">
-            Há mais de 10 anos sendo referência em móveis planejados de alto padrão.
+          <p className="text-lg md:text-2xl text-gray-200 max-w-lg leading-relaxed font-light tracking-wide">
+            Há mais de 40 anos sendo<br />referência em móveis planejados de<br />alto padrão.
           </p>
         </motion.div>
 
@@ -92,20 +94,20 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-gray-100 shadow-2xl max-w-md w-full mx-auto lg:ml-auto"
+          className="bg-[#1a1a1a]/90 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-gray-800 shadow-2xl max-w-md w-full mx-auto lg:ml-auto"
         >
           <div className="text-center mb-6">
-            <h3 className="text-2xl text-gray-900 font-medium mb-1">
-              Solicite seu <span className="text-[#004243] font-bold">Orçamento</span>
+            <h3 className="text-2xl text-white font-medium mb-1">
+              Solicite seu <span className="text-yellow-500 font-bold">Orçamento</span>
             </h3>
-            <p className="text-gray-500 text-xs">Visualize seu projeto em <span className="font-bold text-gray-800">24H</span></p>
+            <p className="text-gray-400 text-xs">Visualize seu projeto em <span className="font-bold text-gray-200">24H</span></p>
           </div>
 
           {formStatus === 'success' && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm text-center"
+              className="mb-6 p-4 rounded-lg bg-green-900/50 border border-green-800 text-green-200 text-sm text-center"
             >
               Orçamento enviado com sucesso! Entraremos em contato em breve.
             </motion.div>
@@ -113,15 +115,15 @@ const Hero = () => {
 
           <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="space-y-1">
-              <label className="text-xs text-gray-600 font-medium ml-1">Nome</label>
+              <label className="text-xs text-gray-300 font-medium ml-1">Nome</label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
                   <User size={16} />
                 </div>
                 <input
                   type="text"
                   name="name"
-                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 text-sm"
+                  className="w-full pl-9 pr-3 py-2.5 bg-[#222222] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-gray-500 text-sm"
                   placeholder="Seu nome completo"
                   required
                 />
@@ -130,15 +132,15 @@ const Hero = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-1">
-                <label className="text-xs text-gray-600 font-medium ml-1">E-mail</label>
+                <label className="text-xs text-gray-300 font-medium ml-1">E-mail</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
                     <Mail size={16} />
                   </div>
                   <input
                     type="email"
                     name="email"
-                    className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 text-sm"
+                    className="w-full pl-9 pr-3 py-2.5 bg-[#222222] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-gray-500 text-sm"
                     placeholder="seu@email.com"
                     required
                   />
@@ -146,15 +148,15 @@ const Hero = () => {
               </div>
 
               <div className="space-y-1">
-                <label className="text-xs text-gray-600 font-medium ml-1">Telefone</label>
+                <label className="text-xs text-gray-300 font-medium ml-1">Telefone</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
                     <PhoneIcon size={16} />
                   </div>
                   <input
                     type="tel"
                     name="phone"
-                    className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 text-sm"
+                    className="w-full pl-9 pr-3 py-2.5 bg-[#222222] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-gray-500 text-sm"
                     placeholder="(11) 99999-9999"
                     required
                   />
@@ -164,50 +166,55 @@ const Hero = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-1">
+                <label className="text-xs text-gray-300 font-medium ml-1">Loja de Preferência</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                    <Store size={16} />
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
+                    <Building2 size={16} />
                   </div>
-                  <select name="store" className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors appearance-none text-sm" required>
-                    <option value="">Escolha uma loja</option>
-                    <option value="sp">São Paulo - Matriz</option>
-                    <option value="rj">Rio de Janeiro</option>
+                  <select
+                    name="store"
+                    className="w-full pl-9 pr-3 py-2.5 bg-[#222222] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors text-sm appearance-none"
+                    required
+                  >
+                    <option value="" className="text-gray-500">Escolha uma loja</option>
+                    <option value="matriz">Matriz - Pinheiros</option>
+                    <option value="jardins">Filial - Jardins</option>
+                    <option value="moema">Filial - Moema</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
-                    <ChevronRight size={14} className="rotate-90" />
-                  </div>
                 </div>
               </div>
 
               <div className="space-y-1">
+                <label className="text-xs text-gray-300 font-medium ml-1">Investimento</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-500">
                     <DollarSign size={16} />
                   </div>
-                  <select name="investment" className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors appearance-none text-sm" required>
-                    <option value="">Investimento</option>
-                    <option value="10k">Até R$ 10.000</option>
-                    <option value="50k">R$ 10.000 a R$ 50.000</option>
-                    <option value="100k">Acima de R$ 50.000</option>
+                  <select
+                    name="investment"
+                    className="w-full pl-9 pr-3 py-2.5 bg-[#222222] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors text-sm appearance-none"
+                    required
+                  >
+                    <option value="" className="text-gray-500">Investimento</option>
+                    <option value="ate-50k">Até R$ 50.000</option>
+                    <option value="50k-100k">R$ 50.000 a R$ 100.000</option>
+                    <option value="acima-100k">Acima de R$ 100.000</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
-                    <ChevronRight size={14} className="rotate-90" />
-                  </div>
                 </div>
               </div>
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs text-gray-600 font-medium ml-1">Quais ambientes deseja orçamento?</label>
+              <label className="text-xs text-gray-300 font-medium ml-1">Quais ambientes deseja orçamento?</label>
               <div className="relative">
-                <div className="absolute top-2.5 left-0 pl-3 flex items-start pointer-events-none text-gray-400">
+                <div className="absolute top-3 left-3 pointer-events-none text-gray-500">
                   <MessageSquare size={16} />
                 </div>
                 <textarea
                   name="environments"
-                  rows={2}
-                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 resize-none text-sm"
+                  className="w-full pl-9 pr-3 py-2.5 bg-[#222222] border border-gray-700 rounded-lg text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-colors placeholder-gray-500 text-sm resize-none"
                   placeholder="Ex: Cozinha, Sala, Dormitório..."
+                  rows={4}
                   required
                 ></textarea>
               </div>
@@ -215,9 +222,9 @@ const Hero = () => {
 
             <button
               type="submit"
-              className="w-full bg-[#004243] text-white font-bold py-3.5 rounded-lg hover:bg-[#003031] transition-colors mt-2 tracking-wider text-sm shadow-md"
+              className="w-full bg-[#1a1a1a] hover:bg-black text-white py-3.5 rounded-lg font-medium tracking-wide transition-all shadow-md mt-2 flex justify-center items-center gap-2 border border-yellow-500/30 hover:border-yellow-500"
             >
-              ENVIAR SOLICITAÇÃO
+              Enviar Orçamento
             </button>
           </form>
         </motion.div>
@@ -322,7 +329,7 @@ const Portfolio = () => {
             >
               <img
                 src={img}
-                alt={`Projeto ${index + 1}`}
+                alt={`Projeto ${index + 1} `}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
                 referrerPolicy="no-referrer"
               />
