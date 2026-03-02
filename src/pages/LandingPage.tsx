@@ -300,20 +300,20 @@ const Pricing = () => {
               </div>
 
               {/* Text components bottom centered */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end text-center z-10 pb-10">
-                <p className="text-white/90 text-[13px] md:text-sm font-light tracking-[0.2em] uppercase mb-1 drop-shadow-md">
-                  À partir de:
+              <div className="absolute inset-0 p-6 flex flex-col justify-end text-center z-10 pb-8">
+                <p className="text-white/90 text-[15px] font-normal tracking-[0.05em] uppercase mb-0 drop-shadow-md">
+                  À PARTIR DE:
                 </p>
-                <p className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-white tracking-tight drop-shadow-lg">
+                <p className="text-4xl lg:text-5xl font-black text-white tracking-tight drop-shadow-lg">
                   {plan.price}
                 </p>
               </div>
 
               {/* Floating Badge for Metrage */}
-              <div className="absolute top-6 -right-3 md:-right-6 bg-[#004243] text-white w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center shadow-2xl z-20 transition-transform duration-300 group-hover:scale-110">
-                <span className="text-2xl md:text-3xl font-bold leading-none flex items-start">
+              <div className="absolute top-6 -right-4 lg:-right-6 bg-[#004243] text-white w-24 h-24 lg:w-28 lg:h-28 rounded-full flex items-center justify-center shadow-2xl z-20 transition-transform duration-300 group-hover:scale-110">
+                <span className="text-3xl lg:text-4xl font-black leading-none flex items-start">
                   {plan.size.replace('m²', '')}
-                  <span className="text-[10px] md:text-xs font-bold uppercase mt-1 md:mt-1.5 ml-0.5">m²</span>
+                  <span className="text-xs lg:text-sm font-bold uppercase mt-1 lg:mt-1.5 ml-0.5">M2</span>
                 </span>
               </div>
             </motion.div>
