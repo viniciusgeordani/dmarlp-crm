@@ -60,42 +60,39 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
-        <div className="relative">
-          {/* Green block background extending to the left edge of the screen */}
-          <div className="absolute inset-y-0 right-0 w-[200vw] bg-[#004243] z-[-1] hidden lg:block" style={{ transform: 'translateX(-100%)', left: '100%' }}></div>
-          {/* Green block background for mobile */}
-          <div className="absolute inset-0 w-[200vw] bg-[#004243] z-[-1] lg:hidden -ml-[100vw]"></div>
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16">
 
+        {/* The horizontal full-width green band covering the middle of the screen */}
+        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243] z-[-1] hidden lg:block shadow-2xl"></div>
+        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243] z-[-1] lg:hidden"></div>
+
+        <div className="relative">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white pt-10 lg:pt-0 lg:py-16 relative z-10"
+            className="text-white py-12 relative z-10"
           >
-            <div className="mb-8 flex items-center gap-4">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
+            <div className="mb-10 flex items-center gap-4">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
               <div className="flex flex-col">
-                <h2 className="text-3xl tracking-[0.3em] font-light leading-none text-white">D'MAR</h2>
-                <p className="text-white/80 text-xs tracking-[0.4em] uppercase mt-2 font-medium">Planejados</p>
+                <h2 className="text-2xl tracking-[0.3em] font-light leading-none text-white">D'MAR</h2>
+                <p className="text-white/80 text-[10px] tracking-[0.4em] uppercase mt-1.5 font-medium">Planejados</p>
               </div>
             </div>
 
-            <h1 className="mb-6 tracking-tight text-white">
-              <span className="block text-4xl md:text-5xl lg:text-5xl font-light leading-snug tracking-wide uppercase">
+            <h1 className="mb-8 text-white">
+              <span className="block text-xl md:text-2xl lg:text-3xl font-light tracking-[0.15em] uppercase mb-2">
                 Referência em
               </span>
-              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-1">
-                MÓVEIS
-              </span>
-              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-2">
-                PLANEJADOS
+              <span className="block text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                MÓVEIS PLANEJADOS
               </span>
             </h1>
-            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-md leading-relaxed font-light tracking-wide">
-              Há mais de 10 anos sendo referência em <br className="hidden md:block" />móveis planejados de alto padrão.
+            <p className="text-xs md:text-sm text-white/80 max-w-sm leading-[1.8] font-light tracking-widest uppercase">
+              Há mais de 10 anos sendo<br />referência em móveis planejados<br />de alto padrão.
             </p>
           </motion.div>
         </div>
@@ -105,7 +102,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-gray-100 shadow-2xl max-w-md w-full mx-auto lg:ml-auto"
+          className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-2xl max-w-md w-full mx-auto lg:ml-auto relative z-20 my-[-30px] lg:my-[-60px]"
         >
           <div className="text-center mb-6">
             <h3 className="text-2xl text-gray-900 font-medium mb-1">
