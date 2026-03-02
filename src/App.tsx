@@ -9,7 +9,7 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/crm" element={<CRM />} />
+          <Route path="/admin-painel-crm-dmar" element={<CRM />} />
         </Routes>
       </Router>
     </CRMProvider>

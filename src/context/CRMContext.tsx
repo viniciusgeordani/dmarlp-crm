@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { supabase } from '../lib/supabase';
 
 export type LeadStatus = 'novo' | 'em_contato' | 'negociacao' | 'fechado' | 'perdido';
 
@@ -24,40 +25,77 @@ interface CRMContextType {
 const CRMContext = createContext<CRMContextType | undefined>(undefined);
 
 export const CRMProvider = ({ children }: { children: ReactNode }) => {
-  const [leads, setLeads] = useState<Lead[]>(() => {
-    const saved = localStorage.getItem('artisano_crm_leads');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch (e) {
-        return [];
-      }
-    }
-    return [];
-  });
+  const [leads, setLeads] = useState<Lead[]>([]);
 
   useEffect(() => {
-    localStorage.setItem('artisano_crm_leads', JSON.stringify(leads));
-  }, [leads]);
+    fetchLeads();
+  }, []);
 
-  const addLead = (leadData: Omit<Lead, 'id' | 'status' | 'createdAt'>) => {
-    const newLead: Lead = {
-      ...leadData,
-      id: crypto.randomUUID(),
-      status: 'novo',
-      createdAt: new Date().toISOString(),
-    };
-    setLeads((prev) => [newLead, ...prev]);
+  const fetchLeads = async () => {
+    const { data, error } = await supabase
+      .from('leads')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) {
+      console.error('Error fetching leads:', error);
+    } else {
+      // Map database snake_case to camelCase just in case or use them as is if they match
+      setLeads(data as unknown as Lead[]);
+    }
   };
 
-  const updateLeadStatus = (id: string, status: LeadStatus) => {
+  const addLead = async (leadData: Omit<Lead, 'id' | 'status' | 'createdAt'>) => {
+    const newLead = {
+      ...leadData,
+      status: 'novo',
+      // The database will generate id and created_at
+    };
+
+    const { data, error } = await supabase
+      .from('leads')
+      .insert([newLead])
+      .select()
+      .single();
+
+    if (error) {
+      console.error('Error adding lead:', error);
+    } else if (data) {
+      setLeads((prev) => [data as unknown as Lead, ...prev]);
+    }
+  };
+
+  const updateLeadStatus = async (id: string, status: LeadStatus) => {
+    // Opportunistic UI update
     setLeads((prev) =>
       prev.map((lead) => (lead.id === id ? { ...lead, status } : lead))
     );
+
+    const { error } = await supabase
+      .from('leads')
+      .update({ status })
+      .eq('id', id);
+
+    if (error) {
+      console.error('Error updating lead status:', error);
+      // Ideally revert the opportunistic update here in a real app
+      fetchLeads();
+    }
   };
 
-  const deleteLead = (id: string) => {
+  const deleteLead = async (id: string) => {
+    // Opportunistic UI update
     setLeads((prev) => prev.filter((lead) => lead.id !== id));
+
+    const { error } = await supabase
+      .from('leads')
+      .delete()
+      .eq('id', id);
+
+    if (error) {
+      console.error('Error deleting lead:', error);
+      fetchLeads();
+    }
   };
 
   return (
