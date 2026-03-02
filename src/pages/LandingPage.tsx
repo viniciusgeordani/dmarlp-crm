@@ -61,38 +61,44 @@ const Hero = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
-        {/* Left Column: Text */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-gray-900 pt-10 lg:pt-0"
-        >
-          <div className="mb-8 flex items-center gap-4">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-[#004243]">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-            <div className="flex flex-col">
-              <h2 className="text-3xl tracking-[0.3em] font-light leading-none">D'MAR</h2>
-              <p className="text-[#004243] text-xs tracking-[0.4em] uppercase mt-2 font-medium">Planejados</p>
-            </div>
-          </div>
+        <div className="relative">
+          {/* Green block background extending to the left edge of the screen */}
+          <div className="absolute inset-y-0 right-0 w-[200vw] bg-[#004243] z-[-1] hidden lg:block" style={{ transform: 'translateX(-100%)', left: '100%' }}></div>
+          {/* Green block background for mobile */}
+          <div className="absolute inset-0 w-[200vw] bg-[#004243] z-[-1] lg:hidden -ml-[100vw]"></div>
 
-          <h1 className="mb-6 tracking-tight text-gray-900">
-            <span className="block text-4xl md:text-5xl lg:text-5xl font-light leading-snug tracking-wide uppercase">
-              Referência em
-            </span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-1">
-              MÓVEIS
-            </span>
-            <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-2">
-              PLANEJADOS
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-md leading-relaxed font-light tracking-wide">
-            Há mais de 10 anos sendo referência em <br className="hidden md:block" />móveis planejados de alto padrão.
-          </p>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-white pt-10 lg:pt-0 lg:py-16 relative z-10"
+          >
+            <div className="mb-8 flex items-center gap-4">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+              </svg>
+              <div className="flex flex-col">
+                <h2 className="text-3xl tracking-[0.3em] font-light leading-none text-white">D'MAR</h2>
+                <p className="text-white/80 text-xs tracking-[0.4em] uppercase mt-2 font-medium">Planejados</p>
+              </div>
+            </div>
+
+            <h1 className="mb-6 tracking-tight text-white">
+              <span className="block text-4xl md:text-5xl lg:text-5xl font-light leading-snug tracking-wide uppercase">
+                Referência em
+              </span>
+              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-1">
+                MÓVEIS
+              </span>
+              <span className="block text-5xl md:text-6xl lg:text-7xl font-bold leading-none mt-2">
+                PLANEJADOS
+              </span>
+            </h1>
+            <p className="text-lg md:text-xl lg:text-2xl text-white/90 max-w-md leading-relaxed font-light tracking-wide">
+              Há mais de 10 anos sendo referência em <br className="hidden md:block" />móveis planejados de alto padrão.
+            </p>
+          </motion.div>
+        </div>
 
         {/* Right Column: Form */}
         <motion.div
