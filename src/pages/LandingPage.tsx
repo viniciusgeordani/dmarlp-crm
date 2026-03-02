@@ -335,7 +335,7 @@ const Portfolio = () => {
 
   return (
     <section id="portfolio" className="py-24 bg-[#0A0A0A]">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
           <div className="max-w-xl">
             <h2 className="text-3xl md:text-4xl font-light mb-4">Projetos que <span className="font-bold text-brand-accent">Inspiram</span></h2>
@@ -400,7 +400,7 @@ const Testimonials = () => {
 
   return (
     <section id="testimonials" className="py-24 bg-[#111111] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <h2 className="text-3xl md:text-4xl text-center mb-16 font-light">O que dizem nossos <span className="font-bold text-brand-accent">clientes</span></h2>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -435,7 +435,7 @@ const Testimonials = () => {
 const Footer = () => {
   return (
     <footer className="py-12 bg-[#0A0A0A] border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
         <div className="flex items-center gap-2 text-white">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-brand-accent">
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
