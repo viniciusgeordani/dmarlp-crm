@@ -58,38 +58,38 @@ const Hero = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16">
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-8">
 
         {/* Full width green band covering the middle of the screen horizontally */}
         <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243]/90 z-[-1] shadow-2xl"></div>
 
-        <div className="relative pl-4 md:pl-8">
+        <div className="relative pl-8 md:pl-16 lg:pl-24">
 
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white py-8 relative z-10"
+            className="text-white py-6 relative z-10"
           >
-            <div className="mb-6 flex items-center gap-4">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
+            <div className="mb-4 flex items-center gap-4">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
               <div className="flex flex-col">
-                <h2 className="text-2xl tracking-[0.3em] font-light leading-none text-white">D'MAR</h2>
-                <p className="text-white/80 text-[10px] tracking-[0.4em] uppercase mt-1.5 font-medium">Planejados</p>
+                <h2 className="text-xl tracking-[0.3em] font-light leading-none text-white">D'MAR</h2>
+                <p className="text-white/80 text-[9px] tracking-[0.4em] uppercase mt-1 font-medium">Planejados</p>
               </div>
             </div>
 
-            <h1 className="mb-6 text-white flex flex-col gap-1">
-              <span className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide uppercase">
+            <h1 className="mb-4 text-white flex flex-col gap-1">
+              <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide uppercase">
                 Referência em
               </span>
-              <span className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <span className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
                 MÓVEIS PLANEJADOS
               </span>
             </h1>
-            <p className="text-xs md:text-sm text-white/90 max-w-sm leading-[1.8] font-light tracking-widest uppercase">
+            <p className="text-[11px] md:text-xs text-white/90 max-w-sm leading-[1.8] font-light tracking-widest uppercase">
               Há mais de 10 anos sendo<br />referência em móveis planejados<br />de alto padrão.
             </p>
           </motion.div>
