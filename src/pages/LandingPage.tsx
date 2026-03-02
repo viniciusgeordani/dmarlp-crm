@@ -60,11 +60,10 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16">
 
+        {/* Full width green band covering the middle of the screen horizontally */}
+        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243]/90 z-[-1] shadow-2xl"></div>
+
         <div className="relative pl-4 md:pl-8">
-          {/* Green block background extending to the left edge of the screen */}
-          <div className="absolute inset-y-0 right-0 w-[200vw] bg-[#004243]/90 z-[-1] hidden lg:block shadow-2xl" style={{ transform: 'translateX(-100%)', left: '100%' }}></div>
-          {/* Green block background for mobile */}
-          <div className="absolute inset-0 w-[200vw] bg-[#004243]/90 z-[-1] lg:hidden -ml-[100vw]"></div>
 
           <motion.div
             initial={{ opacity: 0, x: -50 }}
