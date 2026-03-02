@@ -61,7 +61,7 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-8">
 
         {/* Full width green band covering the middle of the screen horizontally */}
-        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243]/90 z-[-1] shadow-2xl"></div>
+        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243]/95 z-[-1] shadow-2xl"></div>
 
         <div className="relative pl-8 md:pl-16 lg:pl-24">
 
