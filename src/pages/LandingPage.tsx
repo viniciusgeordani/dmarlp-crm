@@ -45,16 +45,17 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-[#0A0A0A]">
+    <section id="home" className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-gray-50">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop"
           alt="Interior de luxo"
-          className="w-full h-full object-cover opacity-30"
+          className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/80 to-[#0A0A0A]/40"></div>
+        {/* Gradiente claro para garantir leitura do texto na esquerda sem escurecer a imagem inteira */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center">
@@ -63,15 +64,15 @@ const Hero = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-white pt-10 lg:pt-0"
+          className="text-gray-900 pt-10 lg:pt-0"
         >
           <div className="mb-8 flex items-center gap-4">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-brand-accent">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-[#004243]">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
             <div className="flex flex-col">
               <h2 className="text-3xl tracking-[0.3em] font-light leading-none">D'MAR</h2>
-              <p className="text-brand-accent text-xs tracking-[0.4em] uppercase mt-2">Planejados</p>
+              <p className="text-[#004243] text-xs tracking-[0.4em] uppercase mt-2 font-medium">Planejados</p>
             </div>
           </div>
 
@@ -79,10 +80,9 @@ const Hero = () => {
             REFERÊNCIA EM <br />
             <span className="font-bold">MÓVEIS<br />PLANEJADOS</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-400 max-w-md leading-relaxed font-light">
+          <p className="text-lg md:text-xl text-gray-700 max-w-md leading-relaxed font-light">
             Há mais de 10 anos sendo referência em móveis planejados de alto padrão.
           </p>
-
         </motion.div>
 
         {/* Right Column: Form */}
@@ -90,69 +90,69 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-[#1A1A1A]/95 backdrop-blur-md p-8 md:p-10 rounded-2xl border border-white/5 shadow-2xl max-w-lg w-full mx-auto lg:ml-auto"
+          className="bg-white/95 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-gray-100 shadow-2xl max-w-md w-full mx-auto lg:ml-auto"
         >
-          <div className="text-center mb-8">
-            <h3 className="text-2xl md:text-3xl text-white font-medium mb-2">
-              Solicite seu <span className="text-brand-accent">Orçamento</span>
+          <div className="text-center mb-6">
+            <h3 className="text-2xl text-gray-900 font-medium mb-1">
+              Solicite seu <span className="text-[#004243] font-bold">Orçamento</span>
             </h3>
-            <p className="text-gray-400 text-sm">Visualize seu projeto em <span className="font-bold text-white">24H</span></p>
+            <p className="text-gray-500 text-xs">Visualize seu projeto em <span className="font-bold text-gray-800">24H</span></p>
           </div>
 
           {formStatus === 'success' && (
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="mb-6 p-4 rounded-lg bg-green-900/20 border border-green-800/50 text-green-400 text-sm text-center"
+              className="mb-6 p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm text-center"
             >
               Orçamento enviado com sucesso! Entraremos em contato em breve.
             </motion.div>
           )}
 
-          <form className="space-y-5" onSubmit={handleSubmit}>
-            <div className="space-y-1.5">
-              <label className="text-sm text-gray-400">Nome</label>
+          <form className="space-y-4" onSubmit={handleSubmit}>
+            <div className="space-y-1">
+              <label className="text-xs text-gray-600 font-medium ml-1">Nome</label>
               <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                  <User size={18} />
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                  <User size={16} />
                 </div>
                 <input
                   type="text"
                   name="name"
-                  className="w-full pl-11 pr-4 py-3 bg-[#111111] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-brand-accent transition-colors placeholder-gray-600"
+                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 text-sm"
                   placeholder="Seu nome completo"
                   required
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div className="space-y-1.5">
-                <label className="text-sm text-gray-400">E-mail</label>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-1">
+                <label className="text-xs text-gray-600 font-medium ml-1">E-mail</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                    <Mail size={18} />
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Mail size={16} />
                   </div>
                   <input
                     type="email"
                     name="email"
-                    className="w-full pl-11 pr-4 py-3 bg-[#111111] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-brand-accent transition-colors placeholder-gray-600"
+                    className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 text-sm"
                     placeholder="seu@email.com"
                     required
                   />
                 </div>
               </div>
 
-              <div className="space-y-1.5">
-                <label className="text-sm text-gray-400">Telefone</label>
+              <div className="space-y-1">
+                <label className="text-xs text-gray-600 font-medium ml-1">Telefone</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                    <PhoneIcon size={18} />
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <PhoneIcon size={16} />
                   </div>
                   <input
                     type="tel"
                     name="phone"
-                    className="w-full pl-11 pr-4 py-3 bg-[#111111] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-brand-accent transition-colors placeholder-gray-600"
+                    className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 text-sm"
                     placeholder="(11) 99999-9999"
                     required
                   />
@@ -160,51 +160,51 @@ const Hero = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              <div className="space-y-1.5">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-1">
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                    <Store size={18} />
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <Store size={16} />
                   </div>
-                  <select name="store" className="w-full pl-11 pr-4 py-3 bg-[#111111] border border-[#333333] rounded-lg text-gray-400 focus:outline-none focus:border-brand-accent transition-colors appearance-none" required>
+                  <select name="store" className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors appearance-none text-sm" required>
                     <option value="">Escolha uma loja</option>
                     <option value="sp">São Paulo - Matriz</option>
                     <option value="rj">Rio de Janeiro</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-500">
-                    <ChevronRight size={16} className="rotate-90" />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
+                    <ChevronRight size={14} className="rotate-90" />
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-gray-500">
-                    <DollarSign size={18} />
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+                    <DollarSign size={16} />
                   </div>
-                  <select name="investment" className="w-full pl-11 pr-4 py-3 bg-[#111111] border border-[#333333] rounded-lg text-gray-400 focus:outline-none focus:border-brand-accent transition-colors appearance-none" required>
+                  <select name="investment" className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-700 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors appearance-none text-sm" required>
                     <option value="">Investimento</option>
                     <option value="10k">Até R$ 10.000</option>
                     <option value="50k">R$ 10.000 a R$ 50.000</option>
                     <option value="100k">Acima de R$ 50.000</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-gray-500">
-                    <ChevronRight size={16} className="rotate-90" />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-gray-400">
+                    <ChevronRight size={14} className="rotate-90" />
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-1.5">
-              <label className="text-sm text-gray-400">Quais ambientes deseja orçamento?</label>
+            <div className="space-y-1">
+              <label className="text-xs text-gray-600 font-medium ml-1">Quais ambientes deseja orçamento?</label>
               <div className="relative">
-                <div className="absolute top-3 left-0 pl-4 flex items-start pointer-events-none text-gray-500">
-                  <MessageSquare size={18} />
+                <div className="absolute top-2.5 left-0 pl-3 flex items-start pointer-events-none text-gray-400">
+                  <MessageSquare size={16} />
                 </div>
                 <textarea
                   name="environments"
-                  rows={3}
-                  className="w-full pl-11 pr-4 py-3 bg-[#111111] border border-[#333333] rounded-lg text-white focus:outline-none focus:border-brand-accent transition-colors placeholder-gray-600 resize-none"
+                  rows={2}
+                  className="w-full pl-9 pr-3 py-2.5 bg-gray-50 border border-gray-200 rounded-lg text-gray-900 focus:outline-none focus:border-[#004243] focus:ring-1 focus:ring-[#004243] transition-colors placeholder-gray-400 resize-none text-sm"
                   placeholder="Ex: Cozinha, Sala, Dormitório..."
                   required
                 ></textarea>
@@ -213,7 +213,7 @@ const Hero = () => {
 
             <button
               type="submit"
-              className="w-full bg-brand-accent text-black font-bold py-4 rounded-lg hover:bg-[#b38f4a] transition-colors mt-4 tracking-wider"
+              className="w-full bg-[#004243] text-white font-bold py-3.5 rounded-lg hover:bg-[#003031] transition-colors mt-2 tracking-wider text-sm shadow-md"
             >
               ENVIAR SOLICITAÇÃO
             </button>
