@@ -56,24 +56,23 @@ const Hero = () => {
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
-        {/* Gradiente claro para garantir leitura do texto na esquerda sem escurecer a imagem inteira */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/70 to-transparent"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-12 items-center py-16">
 
-        {/* The horizontal full-width green band covering the middle of the screen */}
-        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243] z-[-1] hidden lg:block shadow-2xl"></div>
-        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243] z-[-1] lg:hidden"></div>
+        <div className="relative pl-4 md:pl-8">
+          {/* Green block background extending to the left edge of the screen */}
+          <div className="absolute inset-y-0 right-0 w-[200vw] bg-[#004243]/90 z-[-1] hidden lg:block shadow-2xl" style={{ transform: 'translateX(-100%)', left: '100%' }}></div>
+          {/* Green block background for mobile */}
+          <div className="absolute inset-0 w-[200vw] bg-[#004243]/90 z-[-1] lg:hidden -ml-[100vw]"></div>
 
-        <div className="relative">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-white py-12 relative z-10"
+            className="text-white py-8 relative z-10"
           >
-            <div className="mb-10 flex items-center gap-4">
+            <div className="mb-6 flex items-center gap-4">
               <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
@@ -83,15 +82,15 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1 className="mb-8 text-white">
-              <span className="block text-xl md:text-2xl lg:text-3xl font-light tracking-[0.15em] uppercase mb-2">
+            <h1 className="mb-6 text-white flex flex-col gap-1">
+              <span className="text-3xl md:text-4xl lg:text-5xl font-light tracking-wide uppercase">
                 Referência em
               </span>
-              <span className="block text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+              <span className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
                 MÓVEIS PLANEJADOS
               </span>
             </h1>
-            <p className="text-xs md:text-sm text-white/80 max-w-sm leading-[1.8] font-light tracking-widest uppercase">
+            <p className="text-xs md:text-sm text-white/90 max-w-sm leading-[1.8] font-light tracking-widest uppercase">
               Há mais de 10 anos sendo<br />referência em móveis planejados<br />de alto padrão.
             </p>
           </motion.div>
