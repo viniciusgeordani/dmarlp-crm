@@ -45,9 +45,12 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'leads' }, (payload) => {
         // Quando um lead for inserido via Landing Page, ele cai aqui na hora para o Admin
         setLeads((prevLeads) => {
-          // Checa se já não existe para evitar duplicação (caso a inserção foi feita na mesma aba)
           if (prevLeads.some(l => l.id === payload.new.id)) return prevLeads;
-          return [payload.new as unknown as Lead, ...prevLeads];
+          const mappedNewLead = {
+            ...payload.new,
+            createdAt: (payload.new as any).created_at
+          } as unknown as Lead;
+          return [mappedNewLead, ...prevLeads];
         });
       })
       .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'leads' }, (payload) => {
@@ -71,8 +74,12 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
     if (error) {
       console.error('Error fetching leads:', error);
     } else {
-      // Map database snake_case to camelCase just in case or use them as is if they match
-      setLeads(data as unknown as Lead[]);
+      // Mapear created_at do banco para createdAt da interface
+      const mappedLeads = (data || []).map(lead => ({
+        ...lead,
+        createdAt: (lead as any).created_at
+      }));
+      setLeads(mappedLeads as unknown as Lead[]);
     }
   };
 
@@ -80,7 +87,6 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
     const newLead = {
       ...leadData,
       status: 'novo',
-      // The database will generate id and created_at
     };
 
     const { data, error } = await supabase
@@ -91,8 +97,13 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
 
     if (error) {
       console.error('Error adding lead:', error);
+      throw error;
     } else if (data) {
-      setLeads((prev) => [data as unknown as Lead, ...prev]);
+      const mappedLead = {
+        ...data,
+        createdAt: (data as any).created_at
+      } as unknown as Lead;
+      setLeads((prev) => [mappedLead, ...prev]);
     }
   };
 

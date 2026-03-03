@@ -25,25 +25,30 @@ const Hero = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'success'>('idle');
   const { addLead } = useCRM();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
-    addLead({
-      name: formData.get('name') as string,
-      email: formData.get('email') as string,
-      phone: formData.get('phone') as string,
-      store: formData.get('store') as string,
-      investment: formData.get('investment') as string,
-      environments: formData.get('environments') as string,
-    });
+    try {
+      await addLead({
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        phone: formData.get('phone') as string,
+        store: formData.get('store') as string,
+        investment: formData.get('investment') as string,
+        environments: formData.get('environments') as string,
+      });
 
-    setFormStatus('success');
-    e.currentTarget.reset();
+      setFormStatus('success');
+      e.currentTarget.reset();
 
-    setTimeout(() => {
-      setFormStatus('idle');
-    }, 5000);
+      setTimeout(() => {
+        setFormStatus('idle');
+      }, 5000);
+    } catch (error) {
+      console.error('Falha ao enviar lead:', error);
+      alert('Houve um erro ao enviar seu orçamento. Por favor, tente novamente ou entre em contato pelo WhatsApp.');
+    }
   };
 
   return (
