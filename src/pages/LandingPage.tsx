@@ -336,11 +336,11 @@ const About = () => {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <h2 className="text-4xl md:text-5xl font-light leading-tight uppercase">
+          <h2 className="text-4xl md:text-5xl font-light leading-tight">
             Sobre <span className="font-bold">Nós</span>
           </h2>
 
-          <div className="space-y-4 text-white/90 font-light leading-relaxed text-sm md:text-base uppercase">
+          <div className="space-y-4 text-white/90 font-light leading-relaxed text-base">
             <p>
               Há 15 anos, transformamos ambientes em experiências únicas através de móveis planejados que unem sofisticação, funcionalidade e alto padrão de acabamento.
             </p>
