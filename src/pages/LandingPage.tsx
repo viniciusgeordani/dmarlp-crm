@@ -369,49 +369,44 @@ const About = () => {
 };
 
 const Portfolio = () => {
-  const projects = [
-    "/fotoprincipal02.png",
-    "/fotoprincipal02.png",
-    "/fotoprincipal02.png",
-    "/fotoprincipal02.png",
-    "/fotoprincipal02.png",
-    "/fotoprincipal02.png"
+  const environments = [
+    { title: "Closets", img: "/fotoprincipal02.png" },
+    { title: "Cozinhas", img: "/fotoprincipal02.png" },
+    { title: "Dormitórios", img: "/fotoprincipal02.png" },
+    { title: "Salas", img: "/fotoprincipal02.png" },
+    { title: "Home Office", img: "/fotoprincipal02.png" },
+    { title: "Corporativo", img: "/fotoprincipal02.png" }
   ];
 
   return (
-    <section id="portfolio" className="py-24 bg-[#0A0A0A]">
+    <section id="portfolio" className="py-24 bg-gray-50">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
-          <div className="max-w-xl">
-            <h2 className="text-3xl md:text-4xl font-light mb-4">Projetos que <span className="font-bold text-brand-accent">Inspiram</span></h2>
-            <p className="text-gray-400 font-light">
-              Uma seleção de nossos trabalhos mais recentes, onde a visão do cliente se torna realidade tangível.
-            </p>
-          </div>
-          <button className="text-brand-accent font-medium flex items-center gap-2 hover:gap-3 transition-all uppercase text-sm tracking-widest">
-            Ver galeria <ChevronRight size={16} />
-          </button>
+        <div className="text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-light text-gray-900">
+            Nossos <span className="font-bold">Ambientes</span>
+          </h2>
+          <p className="text-gray-500 mt-4 max-w-2xl mx-auto">
+            Projetos exclusivos desenvolvidos para cada espaço do seu dia a dia, unindo design e funcionalidade.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((img, index) => (
+          {environments.map((env, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative overflow-hidden rounded-2xl aspect-[4/3] border border-white/5"
+              className="group relative overflow-hidden rounded-2xl aspect-[4/3] bg-white shadow-lg cursor-pointer"
             >
               <img
-                src={img}
-                alt={`Projeto ${index + 1}`}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
-                referrerPolicy="no-referrer"
+                src={env.img}
+                alt={env.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
-                <h4 className="text-white text-lg font-medium mb-1">Residência Jardim Europa</h4>
-                <p className="text-brand-accent text-xs uppercase tracking-widest">Cozinha & Área Gourmet</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-6">
+                <h4 className="text-white text-xl font-bold">{env.title}</h4>
               </div>
             </motion.div>
           ))}
