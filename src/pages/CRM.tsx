@@ -46,9 +46,9 @@ export default function CRM() {
     updateLeadStatus(draggableId, destination.droppableId as LeadStatus);
   };
 
-  const filteredLeads = leads.filter(lead =>
-    lead.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    lead.email.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredLeads = (leads || []).filter(lead =>
+    (lead?.name || '').toLowerCase().includes((searchTerm || '').toLowerCase()) ||
+    (lead?.email || '').toLowerCase().includes((searchTerm || '').toLowerCase())
   );
 
   return (
@@ -246,9 +246,9 @@ export default function CRM() {
                                   >
                                     <div className="flex justify-between items-start mb-5">
                                       <div className="flex items-center gap-3">
-                                        <img src={`https://ui-avatars.com/api/?name=${lead.name.split(' ').join('+')}&background=random&color=fff&size=100`} className="w-11 h-11 rounded-full object-cover shadow-sm bg-gray-50" />
+                                        <img src={`https://ui-avatars.com/api/?name=${(lead?.name || 'User').split(' ').join('+')}&background=random&color=fff&size=100`} className="w-11 h-11 rounded-full object-cover shadow-sm bg-gray-50" />
                                         <div className="flex flex-col gap-1.5">
-                                          <h4 className="font-bold text-[15px] text-gray-900 leading-none">{lead.name}</h4>
+                                          <h4 className="font-bold text-[15px] text-gray-900 leading-none">{lead?.name || 'Sem Nome'}</h4>
                                           <span className="text-[12px] font-medium text-gray-400 leading-none">
                                             Today 10:30PM
                                           </span>
