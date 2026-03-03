@@ -3,6 +3,12 @@ import { supabase } from '../lib/supabase';
 
 export type LeadStatus = 'novo' | 'em_contato' | 'negociacao' | 'fechado' | 'perdido';
 
+export interface LeadHistory {
+  from?: LeadStatus;
+  to: LeadStatus;
+  date: string;
+}
+
 export interface Lead {
   id: string;
   name: string;
@@ -13,12 +19,15 @@ export interface Lead {
   environments: string;
   status: LeadStatus;
   createdAt: string;
+  observations?: string;
+  history?: LeadHistory[];
 }
 
 interface CRMContextType {
   leads: Lead[];
   addLead: (lead: Omit<Lead, 'id' | 'status' | 'createdAt'>) => void;
   updateLeadStatus: (id: string, status: LeadStatus) => void;
+  updateLeadDetails: (id: string, updates: Partial<Lead>) => void;
   deleteLead: (id: string) => void;
 }
 
@@ -66,19 +75,46 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateLeadStatus = async (id: string, status: LeadStatus) => {
+    const lead = leads.find((l) => l.id === id);
+    if (!lead || lead.status === status) return;
+
+    const newHistoryEntry: LeadHistory = {
+      from: lead.status,
+      to: status,
+      date: new Date().toISOString()
+    };
+
+    const updatedHistory = [...(lead.history || []), newHistoryEntry];
+
     // Opportunistic UI update
     setLeads((prev) =>
-      prev.map((lead) => (lead.id === id ? { ...lead, status } : lead))
+      prev.map((l) => (l.id === id ? { ...l, status, history: updatedHistory } : l))
     );
 
     const { error } = await supabase
       .from('leads')
-      .update({ status })
+      .update({ status, history: updatedHistory })
       .eq('id', id);
 
     if (error) {
       console.error('Error updating lead status:', error);
       // Ideally revert the opportunistic update here in a real app
+      fetchLeads();
+    }
+  };
+
+  const updateLeadDetails = async (id: string, updates: Partial<Lead>) => {
+    setLeads((prev) =>
+      prev.map((lead) => (lead.id === id ? { ...lead, ...updates } : lead))
+    );
+
+    const { error } = await supabase
+      .from('leads')
+      .update(updates)
+      .eq('id', id);
+
+    if (error) {
+      console.error('Error updating lead details:', error);
       fetchLeads();
     }
   };
@@ -99,7 +135,7 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
   };
 
   return (
-    <CRMContext.Provider value={{ leads, addLead, updateLeadStatus, deleteLead }}>
+    <CRMContext.Provider value={{ leads, addLead, updateLeadStatus, updateLeadDetails, deleteLead }}>
       {children}
     </CRMContext.Provider>
   );

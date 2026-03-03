@@ -15,7 +15,11 @@ import {
   MoreVertical,
   Download,
   Filter,
-  ChevronDown
+  ChevronDown,
+  X,
+  Clock,
+  MessageSquare,
+  DollarSign
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -28,8 +32,9 @@ const COLUMNS: { id: LeadStatus; title: string; dot: string; defaultBadge: strin
 ];
 
 export default function CRM() {
-  const { leads, updateLeadStatus } = useCRM();
+  const { leads, updateLeadStatus, updateLeadDetails } = useCRM();
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedLeadId, setSelectedLeadId] = useState<string | null>(null);
 
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
@@ -76,22 +81,6 @@ export default function CRM() {
             <ChevronDown size={16} />
           </a>
 
-          <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl text-gray-500 hover:text-gray-900 transition-colors">
-            <div className="flex items-center gap-4">
-              <Users size={20} strokeWidth={2} />
-              <span className="font-medium">Accounts</span>
-            </div>
-            <ChevronDown size={16} />
-          </a>
-
-          <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl text-gray-500 hover:text-gray-900 transition-colors">
-            <div className="flex items-center gap-4">
-              <Phone size={20} strokeWidth={2} />
-              <span className="font-medium">Contacts</span>
-            </div>
-            <ChevronDown size={16} />
-          </a>
-
           <div className="pt-2 pb-1">
             <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl" style={{ backgroundColor: '#004243', color: '#fff' }}>
               <div className="flex items-center gap-4">
@@ -107,30 +96,6 @@ export default function CRM() {
               </a>
             </div>
           </div>
-
-          <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl text-gray-500 hover:text-gray-900 transition-colors">
-            <div className="flex items-center gap-4">
-              <Calendar size={20} strokeWidth={2} />
-              <span className="font-medium">Calendar</span>
-            </div>
-            <ChevronDown size={16} />
-          </a>
-
-          <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl text-gray-500 hover:text-gray-900 transition-colors">
-            <div className="flex items-center gap-4">
-              <Activity size={20} strokeWidth={2} />
-              <span className="font-medium">Activates</span>
-            </div>
-            <ChevronDown size={16} />
-          </a>
-
-          <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl text-gray-500 hover:text-gray-900 transition-colors">
-            <div className="flex items-center gap-4">
-              <FileText size={20} strokeWidth={2} />
-              <span className="font-medium">Reports</span>
-            </div>
-            <ChevronDown size={16} />
-          </a>
         </nav>
       </aside>
 
@@ -242,32 +207,47 @@ export default function CRM() {
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
-                                    className={`bg-white p-[22px] rounded-[20px] shadow-[0_4px_16px_rgba(0,0,0,0.03)] border ${snapshot.isDragging ? 'shadow-2xl border-[#004243]/40 rotate-2 z-50 ring-[6px] ring-[#004243]/5' : 'border-gray-100/50 hover:border-gray-200 hover:shadow-lg'} transition-all`}
+                                    onClick={() => setSelectedLeadId(lead.id)}
+                                    className={`bg-white p-5 rounded-[20px] shadow-[0_4px_16px_rgba(0,0,0,0.03)] border cursor-pointer ${snapshot.isDragging ? 'shadow-2xl border-[#004243]/40 rotate-2 z-50 ring-[6px] ring-[#004243]/5' : 'border-gray-100/50 hover:border-gray-200 hover:shadow-lg hover:-translate-y-0.5'} transition-all`}
                                   >
                                     <div className="flex justify-between items-start mb-5">
                                       <div className="flex items-center gap-3">
                                         <img src={`https://ui-avatars.com/api/?name=${(lead?.name || 'User').split(' ').join('+')}&background=random&color=fff&size=100`} className="w-11 h-11 rounded-full object-cover shadow-sm bg-gray-50" />
                                         <div className="flex flex-col gap-1.5">
-                                          <h4 className="font-bold text-[15px] text-gray-900 leading-none">{lead?.name || 'Sem Nome'}</h4>
+                                          <h4 className="font-bold text-[15px] text-gray-900 leading-tight line-clamp-1">{lead?.name || 'Sem Nome'}</h4>
                                           <span className="text-[12px] font-medium text-gray-400 leading-none">
-                                            Today 10:30PM
+                                            Hoje 10:30PM
                                           </span>
                                         </div>
                                       </div>
-                                      <button className="text-gray-400 hover:text-gray-600 pt-1">
-                                        <MoreVertical size={20} />
-                                      </button>
                                     </div>
 
                                     <div className="space-y-[14px]">
                                       <div className="flex items-center gap-3 text-gray-400">
-                                        <Phone size={16} strokeWidth={2.5} />
-                                        <span className="text-[14px] font-medium">{lead.phone || 'N/A'}</span>
+                                        <Phone size={15} strokeWidth={2.5} />
+                                        <span className="text-[13px] font-medium">{lead.phone || 'N/A'}</span>
                                       </div>
                                       <div className="flex items-center gap-3 text-gray-400">
-                                        <Mail size={16} strokeWidth={2.5} />
-                                        <span className="text-[14px] font-medium truncate pr-2">{lead.email}</span>
+                                        <Mail size={15} strokeWidth={2.5} />
+                                        <span className="text-[13px] font-medium truncate pr-2">{lead.email}</span>
                                       </div>
+
+                                      {(lead.environments || lead.investment) && (
+                                        <div className="pt-4 mt-4 border-t border-gray-100 space-y-3">
+                                          {lead.environments && (
+                                            <p className="text-[13px] text-gray-500 line-clamp-2 leading-relaxed">
+                                              <strong className="text-gray-800">Desc: </strong>
+                                              {lead.environments}
+                                            </p>
+                                          )}
+                                          {lead.investment && (
+                                            <div className="flex items-center gap-2 text-[#004243] bg-[#004243]/5 px-2.5 py-1.5 rounded-lg w-fit">
+                                              <DollarSign size={14} strokeWidth={2.5} />
+                                              <span className="text-[12px] font-bold tracking-wide">{lead.investment}</span>
+                                            </div>
+                                          )}
+                                        </div>
+                                      )}
                                     </div>
 
                                     <div className="mt-6">
@@ -292,7 +272,121 @@ export default function CRM() {
         </main>
       </div>
 
+      {/* Lead Details Modal */}
+      {selectedLeadId && (() => {
+        const lead = leads.find(l => l.id === selectedLeadId);
+        if (!lead) return null;
+        return (
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex justify-end transition-all">
+            <div className="w-full max-w-[576px] bg-white h-full shadow-2xl flex flex-col animate-slideInRight">
+              {/* Header */}
+              <div className="px-8 py-7 border-b border-gray-100 flex items-center justify-between pb-6 shrink-0">
+                <div>
+                  <h2 className="text-[22px] font-extrabold text-[#004243] leading-tight pr-4">{lead.name || 'Sem Nome'}</h2>
+                  <div className="flex items-center gap-3 mt-3">
+                    <span className="bg-[#004243]/10 text-[#004243] px-3.5 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider">
+                      {COLUMNS.find(c => c.id === lead.status)?.title}
+                    </span>
+                    <span className="text-sm text-gray-400 font-medium">Desde: {lead.createdAt || (lead as any).created_at ? new Date(lead.createdAt || (lead as any).created_at).toLocaleDateString('pt-BR') : 'Sem data'}</span>
+                  </div>
+                </div>
+                <button
+                  onClick={() => setSelectedLeadId(null)}
+                  className="p-2.5 text-gray-400 hover:text-gray-700 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                >
+                  <X size={24} strokeWidth={2} />
+                </button>
+              </div>
+
+              {/* Body */}
+              <div className="flex-1 overflow-y-auto px-8 py-8 custom-scrollbar space-y-10">
+
+                {/* Contact Actions */}
+                <div className="flex gap-4">
+                  <a href={`https://wa.me/55${lead.phone?.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="flex-1 bg-[#25D366] hover:bg-[#20bd5a] text-white px-5 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors shadow-lg shadow-[#25D366]/20 text-[15px]">
+                    <Phone size={20} strokeWidth={2.5} />
+                    WhatsApp
+                  </a>
+                  <a href={`mailto:${lead.email}`} className="flex-1 bg-white border-2 border-slate-200 hover:border-slate-300 text-slate-700 px-5 py-3.5 rounded-xl font-bold flex items-center justify-center gap-3 transition-colors text-[15px]">
+                    <Mail size={20} strokeWidth={2.5} />
+                    E-mail
+                  </a>
+                </div>
+
+                {/* Descrição e Orçamento */}
+                <div className="bg-slate-50/80 p-7 rounded-2xl border border-slate-100 space-y-6">
+                  <div>
+                    <h3 className="text-[13px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                      <FileText size={16} strokeWidth={2.5} /> Detalhes do Projeto / Ambientes
+                    </h3>
+                    <p className="text-slate-800 font-medium leading-relaxed text-[15px]">
+                      {lead.environments || 'Nenhuma descrição fornecida.'}
+                    </p>
+                  </div>
+                  <div className="w-full h-px bg-slate-200/60"></div>
+                  <div>
+                    <h3 className="text-[13px] font-bold text-slate-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                      <DollarSign size={16} strokeWidth={2.5} /> Orçamento Estimado
+                    </h3>
+                    <p className="text-[18px] font-bold text-[#004243]">
+                      {lead.investment || 'Não estipulado'}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Observações Internas */}
+                <div>
+                  <h3 className="text-[13px] font-bold text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                    <MessageSquare size={16} strokeWidth={2.5} /> Observações Internas da D'Mar
+                  </h3>
+                  <textarea
+                    defaultValue={lead.observations || ''}
+                    onBlur={(e) => updateLeadDetails(lead.id, { observations: e.target.value })}
+                    placeholder="Anote aqui informações relevantes do atendimento, endereço, medidas, preferências do cliente..."
+                    className="w-full h-[180px] p-5 bg-white border-2 border-slate-200 rounded-2xl text-slate-700 font-medium text-[15px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all resize-none shadow-sm leading-relaxed"
+                  ></textarea>
+                  <p className="text-xs text-slate-400 mt-3 font-medium flex items-center gap-1.5"><span className="w-2 h-2 rounded-full bg-green-500"></span> Suas anotações são salvas automaticamente.</p>
+                </div>
+
+                {/* Histórico/Timeline */}
+                <div>
+                  <h3 className="text-[13px] font-bold text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <Clock size={16} strokeWidth={2.5} /> Histórico de Movimentação
+                  </h3>
+                  <div className="ml-3 relative border-l-2 border-slate-100 space-y-7 pb-4">
+                    {(!lead.history || lead.history.length === 0) ? (
+                      <p className="text-slate-400 font-medium italic pl-6 text-sm">Nenhuma movimentação de coluna registrada.</p>
+                    ) : (
+                      lead.history.map((h, i) => (
+                        <div key={i} className="relative pl-7">
+                          <div className="absolute w-3.5 h-3.5 bg-[#004243] rounded-full -left-[9px] top-1.5 ring-4 ring-white"></div>
+                          <div className="font-bold text-slate-800 text-[15px]">
+                            Caiu em "{COLUMNS.find(c => c.id === h.to)?.title}"
+                          </div>
+                          <div className="text-[13px] text-slate-400 mt-1.5 font-medium">
+                            {new Date(h.date).toLocaleDateString('pt-BR')} às {new Date(h.date).toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' })}
+                            {h.from && ` • Veio de: ${COLUMNS.find(c => c.id === h.from)?.title}`}
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       <style>{`
+        @keyframes slideInRight {
+          from { transform: translateX(100%); }
+          to { transform: translateX(0); }
+        }
+        .animate-slideInRight {
+          animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
@@ -301,6 +395,7 @@ export default function CRM() {
           scrollbar-width: none;
         }
         .custom-scrollbar::-webkit-scrollbar {
+          width: 8px;
           height: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
