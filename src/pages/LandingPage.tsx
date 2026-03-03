@@ -313,10 +313,10 @@ const Pricing = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + (index * 0.1) }}
               viewport={{ once: true }}
-              className="bg-[#1a1a1a] rounded-2xl p-6 text-center border border-gray-800"
+              className="bg-[#004243] rounded-2xl p-6 text-center border border-[#003031] shadow-lg"
             >
               <h4 className="text-white text-xl font-bold mb-2">{benefit.title}</h4>
-              <p className="text-gray-400 text-sm font-light">{benefit.description}</p>
+              <p className="text-white/80 text-sm font-light">{benefit.description}</p>
             </motion.div>
           ))}
         </div>
