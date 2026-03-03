@@ -28,18 +28,28 @@ import {
 import { Link } from 'react-router-dom';
 
 const COLUMNS: { id: LeadStatus; title: string; dot: string; defaultBadge: string; defaultBadgeColor: string }[] = [
-  { id: 'novo', title: 'New', dot: 'bg-orange-500', defaultBadge: 'In Process', defaultBadgeColor: 'bg-orange-100 text-orange-600' },
-  { id: 'em_contato', title: 'Open', dot: 'bg-blue-500', defaultBadge: 'Recycled', defaultBadgeColor: 'bg-cyan-100 text-cyan-600' },
-  { id: 'negociacao', title: 'In Progress', dot: 'bg-yellow-500', defaultBadge: 'In Process', defaultBadgeColor: 'bg-orange-100 text-orange-600' },
-  { id: 'fechado', title: 'Open deal', dot: 'bg-cyan-500', defaultBadge: 'In Process', defaultBadgeColor: 'bg-orange-100 text-orange-600' },
-  { id: 'perdido', title: 'Dead', dot: 'bg-[#004243]', defaultBadge: 'Dead', defaultBadgeColor: 'bg-blue-50 text-blue-500' },
+  { id: 'novo', title: 'Novo', dot: 'bg-orange-500', defaultBadge: 'Em Processo', defaultBadgeColor: 'bg-orange-100 text-orange-600' },
+  { id: 'em_contato', title: 'Em Contato', dot: 'bg-blue-500', defaultBadge: 'Retomado', defaultBadgeColor: 'bg-cyan-100 text-cyan-600' },
+  { id: 'negociacao', title: 'Em Negociação', dot: 'bg-yellow-500', defaultBadge: 'Em Processo', defaultBadgeColor: 'bg-orange-100 text-orange-600' },
+  { id: 'fechado', title: 'Fechado/Ganho', dot: 'bg-cyan-500', defaultBadge: 'Ganho', defaultBadgeColor: 'bg-green-100 text-green-600' },
+  { id: 'perdido', title: 'Perdido', dot: 'bg-[#004243]', defaultBadge: 'Perdido', defaultBadgeColor: 'bg-blue-50 text-blue-500' },
 ];
 
 export default function CRM() {
-  const { leads, updateLeadStatus, updateLeadDetails, deleteLead } = useCRM();
+  const { leads, updateLeadStatus, updateLeadDetails, deleteLead, addLead } = useCRM();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLeadId, setSelectedLeadId] = useState<string | null>(null);
   const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+  const [isAddModalOpen, setIsAddModalOpen] = useState(false);
+  const [newLeadForm, setNewLeadForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    store: 'sp',
+    investment: '',
+    environments: '',
+    observations: ''
+  });
 
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
@@ -63,7 +73,10 @@ export default function CRM() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setSelectedLeadId(null);
+      if (e.key === 'Escape') {
+        setSelectedLeadId(null);
+        setIsAddModalOpen(false);
+      }
     };
     const handleClickOutside = (e: MouseEvent) => {
       // Close menu if clicking outside of any dropdown button/menu
@@ -94,6 +107,31 @@ export default function CRM() {
     setOpenMenuId(null);
   };
 
+  const handleAddLeadSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newLeadForm.name || (!newLeadForm.email && !newLeadForm.phone)) {
+      alert("Oops! Preencha pelo menos o Nome e um Contato (Telefone/Email).");
+      return;
+    }
+
+    try {
+      addLead({
+        name: newLeadForm.name,
+        email: newLeadForm.email,
+        phone: newLeadForm.phone,
+        store: newLeadForm.store,
+        investment: newLeadForm.investment,
+        environments: newLeadForm.environments,
+        observations: newLeadForm.observations
+      });
+      setIsAddModalOpen(false);
+      setNewLeadForm({ name: '', email: '', phone: '', store: 'sp', investment: '', environments: '', observations: '' });
+    } catch (err) {
+      alert("Erro ao salvar lead.");
+      console.error(err);
+    }
+  };
+
   return (
     <div className="min-h-screen w-full bg-slate-50 text-slate-800 font-sans flex overflow-hidden">
 
@@ -110,7 +148,7 @@ export default function CRM() {
             </div>
             <input
               type="text"
-              placeholder="Search Anything..."
+              placeholder="Buscar em qualquer lugar..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="w-full pl-12 pr-4 py-3 bg-white border border-gray-100 shadow-[0_2px_8px_rgba(0,0,0,0.02)] rounded-xl text-sm focus:outline-none focus:border-gray-200 focus:ring-2 focus:ring-[#004243]/10 transition-all font-medium placeholder:font-normal placeholder-gray-400"
@@ -118,6 +156,15 @@ export default function CRM() {
           </div>
 
           <div className="flex items-center gap-6 ml-4">
+            <button
+              onClick={() => setIsAddModalOpen(true)}
+              className="bg-[#004243] hover:bg-[#003031] text-white px-5 py-2.5 rounded-xl text-[13px] font-bold flex items-center gap-2 transition-all shadow-lg shadow-[#004243]/20 hover:shadow-xl hover:-translate-y-0.5"
+            >
+              <div className="bg-white/20 p-1 rounded-full"><Search size={14} className="opacity-0 w-0" /></div> {/* Hack visual pro ícone Plus se n importar nativamente */}
+              <span className="flex items-center relative -left-4">+</span>
+              Novo Lead
+            </button>
+            <div className="h-8 w-[1.5px] bg-gray-100 mx-1"></div>
             <button className="text-gray-400 hover:text-gray-600 transition-colors">
               <Mail size={22} strokeWidth={1.5} />
             </button>
@@ -138,10 +185,10 @@ export default function CRM() {
 
         {/* Board Header & Title */}
         <div className="px-8 mt-5 flex items-center justify-between flex-shrink-0">
-          <h1 className="text-[26px] font-bold text-[#111827]">Leads</h1>
-          <button className="bg-[#004243] hover:bg-[#003031] text-white px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors shadow-md shadow-[#004243]/20">
+          <h1 className="text-[26px] font-bold text-[#111827]">Leads Kanban</h1>
+          <button className="bg-white border text-gray-700 hover:bg-slate-50 border-gray-200/80 px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 transition-colors shadow-sm">
             <Download size={18} />
-            Export
+            Exportar
           </button>
         </div>
 
@@ -149,14 +196,14 @@ export default function CRM() {
         <div className="px-8 mt-6 pb-6 border-b border-gray-100/60 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center gap-3">
             <button className="bg-white border text-gray-500 border-gray-200/80 px-4 py-2.5 rounded-lg text-sm font-medium flex items-center gap-4 hover:bg-gray-50 focus:border-gray-300 transition-colors shadow-sm">
-              All Status <ChevronDown size={16} className="text-gray-400" />
+              Status <ChevronDown size={16} className="text-gray-400" />
             </button>
             <button className="bg-white border text-gray-500 border-gray-200/80 px-4 py-2.5 rounded-lg text-sm font-medium flex items-center gap-4 hover:bg-gray-50 focus:border-gray-300 transition-colors shadow-sm">
-              All Sources <ChevronDown size={16} className="text-gray-400" />
+              Origens <ChevronDown size={16} className="text-gray-400" />
             </button>
           </div>
           <button className="text-gray-500 hover:text-gray-800 flex items-center gap-2 text-[15px] font-medium transition-colors border-none bg-transparent">
-            <Filter size={18} strokeWidth={2} /> Filter
+            <Filter size={18} strokeWidth={2} /> Filtros
           </button>
         </div>
 
@@ -192,12 +239,12 @@ export default function CRM() {
                           {columnLeads.map((lead, index) => {
 
                             // Define tags baseando no Lead ou default badge
-                            const badgeText = lead.status === 'fechado' ? 'Won' : lead.status === 'perdido' ? 'Dead' : column.defaultBadge;
+                            const badgeText = lead.status === 'fechado' ? 'Ganho' : lead.status === 'perdido' ? 'Perdido' : column.defaultBadge;
                             let badgeColor = column.defaultBadgeColor;
 
-                            if (badgeText === 'Dead') { badgeColor = 'bg-blue-50 text-blue-500'; }
-                            if (badgeText === 'Won') { badgeColor = 'bg-green-100 text-green-600'; }
-                            if (badgeText === 'Recycled') { badgeColor = 'bg-cyan-50 text-cyan-600'; }
+                            if (badgeText === 'Perdido') { badgeColor = 'bg-blue-50 text-blue-500'; }
+                            if (badgeText === 'Ganho') { badgeColor = 'bg-green-100 text-green-600'; }
+                            if (badgeText === 'Retomado') { badgeColor = 'bg-cyan-50 text-cyan-600'; }
 
                             return (
                               // @ts-ignore
@@ -398,6 +445,61 @@ export default function CRM() {
           </div>
         );
       })()}
+
+      {/* Modal Add Lead Manual */}
+      {isAddModalOpen && (
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+            <div className="px-6 py-5 border-b border-gray-100 flex items-center justify-between shrink-0 bg-slate-50/50">
+              <h2 className="text-lg font-extrabold text-[#004243]">Adicionar Novo Lead</h2>
+              <button onClick={() => setIsAddModalOpen(false)} className="p-2 text-gray-400 hover:text-gray-700 hover:bg-gray-200/50 rounded-full transition-colors shrink-0">
+                <X size={20} strokeWidth={2} />
+              </button>
+            </div>
+            <form onSubmit={handleAddLeadSubmit} className="flex-1 overflow-y-auto px-6 py-6 custom-scrollbar shrink-0">
+              <div className="space-y-5">
+                <div>
+                  <label className="block text-[13px] font-bold text-slate-700 mb-1.5 ml-1">Nome Completo do Cliente *</label>
+                  <input type="text" required value={newLeadForm.name} onChange={e => setNewLeadForm({ ...newLeadForm, name: e.target.value })} className="w-full h-[46px] px-4 bg-white border-2 border-slate-200/80 rounded-xl text-slate-700 font-medium text-[14px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all placeholder:font-normal placeholder-slate-400" placeholder="Ex: Roberto Castro" />
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[13px] font-bold text-slate-700 mb-1.5 ml-1">E-mail</label>
+                    <input type="email" value={newLeadForm.email} onChange={e => setNewLeadForm({ ...newLeadForm, email: e.target.value })} className="w-full h-[46px] px-4 bg-white border-2 border-slate-200/80 rounded-xl text-slate-700 font-medium text-[14px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all placeholder:font-normal placeholder-slate-400" placeholder="cliente@email.com" />
+                  </div>
+                  <div>
+                    <label className="block text-[13px] font-bold text-slate-700 mb-1.5 ml-1">WhatsApp / Telefone</label>
+                    <input type="tel" value={newLeadForm.phone} onChange={e => setNewLeadForm({ ...newLeadForm, phone: e.target.value })} className="w-full h-[46px] px-4 bg-white border-2 border-slate-200/80 rounded-xl text-slate-700 font-medium text-[14px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all placeholder:font-normal placeholder-slate-400" placeholder="(11) 90000-0000" />
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[13px] font-bold text-slate-700 mb-1.5 ml-1">Unidade Preferida</label>
+                    <select value={newLeadForm.store} onChange={e => setNewLeadForm({ ...newLeadForm, store: e.target.value })} className="w-full h-[46px] px-4 bg-white border-2 border-slate-200/80 rounded-xl text-slate-700 font-medium text-[14px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all appearance-none cursor-pointer">
+                      <option value="sp">São Paulo (SP)</option>
+                      <option value="rj">Rio de Janeiro (RJ)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[13px] font-bold text-slate-700 mb-1.5 ml-1">Investimento Estipulado</label>
+                    <input type="text" value={newLeadForm.investment} onChange={e => setNewLeadForm({ ...newLeadForm, investment: e.target.value })} className="w-full h-[46px] px-4 bg-white border-2 border-slate-200/80 rounded-xl text-slate-700 font-medium text-[14px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all placeholder:font-normal placeholder-slate-400" placeholder="Ex: De R$ 20.000 a R$ 30.000" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-[13px] font-bold text-slate-700 mb-1.5 ml-1">Ambientes e Observações Úteis</label>
+                  <textarea rows={3} value={newLeadForm.environments} onChange={e => setNewLeadForm({ ...newLeadForm, environments: e.target.value })} className="w-full py-3 px-4 bg-white border-2 border-slate-200/80 rounded-xl text-slate-700 font-medium text-[14px] focus:outline-none focus:border-[#004243] focus:ring-4 focus:ring-[#004243]/10 transition-all resize-none shadow-sm leading-relaxed placeholder:font-normal placeholder-slate-400" placeholder="Descreva cômodos, intenções do projeto ou detalhes que ajudarão o comercial."></textarea>
+                </div>
+              </div>
+              <div className="mt-8 grid grid-cols-2 gap-3 pb-2">
+                <button type="button" onClick={() => setIsAddModalOpen(false)} className="w-full py-3.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl font-bold transition-colors">Cancelar</button>
+                <button type="submit" className="w-full py-3.5 px-4 bg-[#004243] hover:bg-[#003031] text-white rounded-xl font-bold transition-all shadow-lg shadow-[#004243]/20 flex items-center justify-center gap-2">
+                  <Target size={18} strokeWidth={2.5} /> Salvar Lead
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       <style>{`
         @keyframes slideInRight {
