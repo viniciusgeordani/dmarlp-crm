@@ -254,7 +254,8 @@ export default function CRM() {
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
-                                    className={`bg-white p-4 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] border relative transition-all ${snapshot.isDragging ? 'shadow-xl border-[#004243]/30 scale-[1.02] z-50' : 'border-gray-100/60 hover:border-gray-200 hover:shadow-md'}`}
+                                    onClick={() => setSelectedLeadId(lead.id)}
+                                    className={`bg-white p-4 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] cursor-pointer border relative transition-all ${snapshot.isDragging ? 'shadow-xl border-[#004243]/30 scale-[1.02] z-50' : 'border-gray-100/60 hover:border-gray-200 hover:shadow-md'}`}
                                   >
                                     {/* Header do Card */}
                                     <div className="flex items-start justify-between mb-3 relative">
