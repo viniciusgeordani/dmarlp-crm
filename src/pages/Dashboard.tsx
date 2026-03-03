@@ -120,79 +120,79 @@ export default function Dashboard() {
                     </div>
                 </header>
 
-                <main className="flex-1 overflow-x-hidden overflow-y-auto p-8 bg-[#fdfdfd]">
+                <main className="flex-1 overflow-x-hidden overflow-y-auto p-6 bg-[#fdfdfd]">
                     {/* Top Stats */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
                         {/* Potential Revenue */}
-                        <div className="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 group hover:border-[#004243]/20 transition-all duration-300">
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="p-3 bg-amber-50 rounded-2xl text-amber-600 group-hover:bg-amber-100 transition-colors">
-                                    <DollarSign size={24} strokeWidth={2.5} />
+                        <div className="bg-white p-5 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 group hover:border-[#004243]/20 transition-all duration-300">
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="p-2.5 bg-amber-50 rounded-2xl text-amber-600 group-hover:bg-amber-100 transition-colors">
+                                    <DollarSign size={20} strokeWidth={2.5} />
                                 </div>
                                 <span className="text-[10px] font-black bg-slate-100 px-2 py-1 rounded-lg text-slate-500 uppercase tracking-wider">Potencial</span>
                             </div>
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Valor em Negociação</h3>
+                            <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Valor em Negociação</h3>
                             <div className="flex items-end gap-2 mt-1">
-                                <p className="text-2xl font-black text-slate-900">{formatCurrency(potentialValue)}</p>
+                                <p className="text-xl font-black text-slate-900">{formatCurrency(potentialValue)}</p>
                             </div>
                         </div>
 
                         {/* Realized Revenue */}
-                        <div className="bg-[#004243] p-6 rounded-3xl shadow-[0_20px_40px_rgba(0,66,67,0.15)] border border-[#004243] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+                        <div className="bg-[#004243] p-5 rounded-3xl shadow-[0_20px_40px_rgba(0,66,67,0.15)] border border-[#004243] relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
                             <div className="absolute -right-4 -top-4 opacity-10 group-hover:rotate-12 transition-transform duration-500">
-                                <TrendingUp size={120} />
+                                <TrendingUp size={100} />
                             </div>
-                            <div className="flex items-center justify-between mb-4 relative z-10">
-                                <div className="p-3 bg-white/10 rounded-2xl text-white">
-                                    <CheckCircle2 size={24} strokeWidth={2.5} />
+                            <div className="flex items-center justify-between mb-3 relative z-10">
+                                <div className="p-2.5 bg-white/10 rounded-2xl text-white">
+                                    <CheckCircle2 size={20} strokeWidth={2.5} />
                                 </div>
                                 <span className="text-[10px] font-black bg-white/20 px-2 py-1 rounded-lg text-white uppercase tracking-wider">Realizado</span>
                             </div>
-                            <h3 className="text-xs font-bold text-white/60 uppercase tracking-widest relative z-10">Vendas Fechadas</h3>
-                            <p className="text-2xl font-black text-white mt-1 relative z-10">{formatCurrency(realizedValue)}</p>
+                            <h3 className="text-[11px] font-bold text-white/60 uppercase tracking-widest relative z-10">Vendas Fechadas</h3>
+                            <p className="text-xl font-black text-white mt-1 relative z-10">{formatCurrency(realizedValue)}</p>
                         </div>
 
                         {/* Total Leads */}
-                        <div className="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 group hover:border-[#004243]/20 transition-all duration-300">
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="p-3 bg-sky-50 rounded-2xl text-sky-600 group-hover:bg-sky-100 transition-colors">
-                                    <Users size={24} strokeWidth={2.5} />
+                        <div className="bg-white p-5 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 group hover:border-[#004243]/20 transition-all duration-300">
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="p-2.5 bg-sky-50 rounded-2xl text-sky-600 group-hover:bg-sky-100 transition-colors">
+                                    <Users size={20} strokeWidth={2.5} />
                                 </div>
                                 <span className="flex items-center gap-1 text-[10px] font-black text-emerald-600">
                                     <ArrowUpRight size={12} />
                                     +5%
                                 </span>
                             </div>
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Total de Leads</h3>
-                            <p className="text-2xl font-black text-slate-900 mt-1">{totalLeadsCount}</p>
+                            <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Total de Leads</h3>
+                            <p className="text-xl font-black text-slate-900 mt-1">{totalLeadsCount}</p>
                         </div>
 
                         {/* Conversion Rate */}
-                        <div className="bg-white p-6 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 group hover:border-[#004243]/20 transition-all duration-300">
-                            <div className="flex items-center justify-between mb-4">
-                                <div className="p-3 bg-emerald-50 rounded-2xl text-emerald-600 group-hover:bg-emerald-100 transition-colors">
-                                    <TrendingUp size={24} strokeWidth={2.5} />
+                        <div className="bg-white p-5 rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.02)] border border-slate-100 group hover:border-[#004243]/20 transition-all duration-300">
+                            <div className="flex items-center justify-between mb-3">
+                                <div className="p-2.5 bg-emerald-50 rounded-2xl text-emerald-600 group-hover:bg-emerald-100 transition-colors">
+                                    <TrendingUp size={20} strokeWidth={2.5} />
                                 </div>
                                 <span className="text-[10px] font-black bg-emerald-50 px-2 py-1 rounded-lg text-emerald-600 uppercase tracking-wider">Eficiência</span>
                             </div>
-                            <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Taxa de Conversão</h3>
-                            <p className="text-2xl font-black text-slate-900 mt-1">{conversionRate}%</p>
+                            <h3 className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">Taxa de Conversão</h3>
+                            <p className="text-xl font-black text-slate-900 mt-1">{conversionRate}%</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-12 gap-8">
+                    <div className="grid grid-cols-12 gap-6">
                         {/* Main Charts Col */}
-                        <div className="col-span-12 lg:col-span-8 space-y-8">
-                            <div className="bg-white p-8 rounded-[2.5rem] shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-slate-100 relative overflow-hidden">
-                                <div className="absolute top-0 right-0 p-8 flex gap-2">
-                                    <button className="px-4 py-1.5 rounded-full bg-slate-50 text-[11px] font-black text-slate-400 uppercase">Mensal</button>
-                                    <button className="px-4 py-1.5 rounded-full bg-[#004243] text-[11px] font-black text-white uppercase">Semanal</button>
+                        <div className="col-span-12 lg:col-span-8 space-y-6">
+                            <div className="bg-white p-6 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-slate-100 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-6 flex gap-2">
+                                    <button className="px-3 py-1 rounded-full bg-slate-50 text-[10px] font-black text-slate-400 uppercase">Mensal</button>
+                                    <button className="px-3 py-1 rounded-full bg-[#004243] text-[10px] font-black text-white uppercase">Semanal</button>
                                 </div>
-                                <div className="mb-8">
-                                    <h3 className="text-xl font-black text-slate-900 tracking-tight">Fluxo do Funil</h3>
-                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Status atual dos leads no sistema</p>
+                                <div className="mb-4">
+                                    <h3 className="text-lg font-black text-slate-900 tracking-tight">Fluxo do Funil</h3>
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Status atual dos leads no sistema</p>
                                 </div>
-                                <div className="h-80 w-full">
+                                <div className="h-64 w-full">
                                     <ResponsiveContainer width="100%" height="100%">
                                         <BarChart data={funnelData} margin={{ top: 20, right: 0, left: -20, bottom: 0 }}>
                                             <CartesianGrid strokeDasharray="6 6" vertical={false} stroke="#f1f5f9" />
@@ -209,10 +209,10 @@ export default function Dashboard() {
                                                 tick={{ fill: '#94a3b8', fontSize: 11, fontWeight: 800 }}
                                             />
                                             <Tooltip
-                                                cursor={{ fill: '#f8fafc', radius: 12 }}
-                                                contentStyle={{ borderRadius: '20px', border: 'none', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1)', fontWeight: 'black', padding: '16px' }}
+                                                cursor={{ fill: '#f8fafc', radius: 8 }}
+                                                contentStyle={{ borderRadius: '16px', border: 'none', boxShadow: '0 20px 40px -10px rgba(0,0,0,0.1)', fontWeight: 'black', padding: '12px', fontSize: '12px' }}
                                             />
-                                            <Bar dataKey="value" radius={[12, 12, 12, 12]} barSize={50}>
+                                            <Bar dataKey="value" radius={[8, 8, 8, 8]} barSize={40}>
                                                 {funnelData.map((entry, index) => (
                                                     <Cell key={`cell-${index}`} fill={entry.fill} />
                                                 ))}
@@ -223,53 +223,53 @@ export default function Dashboard() {
                             </div>
 
                             {/* Recent Activity Table */}
-                            <div className="bg-white rounded-[2.5rem] shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-slate-100 overflow-hidden">
-                                <div className="p-8 pb-4 flex items-center justify-between">
+                            <div className="bg-white rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-slate-100 overflow-hidden">
+                                <div className="p-6 pb-2 flex items-center justify-between">
                                     <div>
-                                        <h3 className="text-xl font-black text-slate-900 tracking-tight">Leads Recentes</h3>
-                                        <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Últimas entradas via Landing Page</p>
+                                        <h3 className="text-lg font-black text-slate-900 tracking-tight">Leads Recentes</h3>
+                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Últimas entradas via Landing Page</p>
                                     </div>
-                                    <button className="text-xs font-black text-[#004243] uppercase tracking-wider hover:underline">Ver todos</button>
+                                    <button className="text-[10px] font-black text-[#004243] uppercase tracking-wider hover:underline">Ver todos</button>
                                 </div>
                                 <div className="overflow-x-auto">
                                     <table className="w-full text-left">
                                         <thead>
                                             <tr className="border-b border-slate-50">
-                                                <th className="px-8 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Nome</th>
-                                                <th className="px-8 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Loja</th>
-                                                <th className="px-8 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Valor Est.</th>
-                                                <th className="px-8 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest">Status</th>
-                                                <th className="px-8 py-4 text-[10px] font-black text-slate-400 uppercase tracking-widest text-right">Ação</th>
+                                                <th className="px-6 py-3 text-[9px] font-black text-slate-400 uppercase tracking-widest">Nome</th>
+                                                <th className="px-6 py-3 text-[9px] font-black text-slate-400 uppercase tracking-widest">Loja</th>
+                                                <th className="px-6 py-3 text-[9px] font-black text-slate-400 uppercase tracking-widest">Valor Est.</th>
+                                                <th className="px-6 py-3 text-[9px] font-black text-slate-400 uppercase tracking-widest">Status</th>
+                                                <th className="px-6 py-3 text-[9px] font-black text-slate-400 uppercase tracking-widest text-right">Ação</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-slate-50">
                                             {recentLeads.map((lead) => (
                                                 <tr key={lead.id} className="group hover:bg-slate-50/50 transition-colors">
-                                                    <td className="px-8 py-4">
-                                                        <div className="flex items-center gap-3">
-                                                            <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-500">
+                                                    <td className="px-6 py-2.5">
+                                                        <div className="flex items-center gap-2">
+                                                            <div className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center text-[9px] font-black text-slate-500">
                                                                 {lead.name.charAt(0)}
                                                             </div>
-                                                            <p className="text-sm font-bold text-slate-800">{lead.name}</p>
+                                                            <p className="text-xs font-bold text-slate-800">{lead.name}</p>
                                                         </div>
                                                     </td>
-                                                    <td className="px-8 py-4">
-                                                        <div className="flex items-center gap-1.5">
-                                                            <MapPin size={12} className="text-slate-400" />
-                                                            <span className="text-xs font-bold text-slate-500 uppercase">{lead.store === 'sp' ? 'S. Paulo' : 'Rio'}</span>
+                                                    <td className="px-6 py-2.5">
+                                                        <div className="flex items-center gap-1">
+                                                            <MapPin size={10} className="text-slate-400" />
+                                                            <span className="text-[10px] font-bold text-slate-500 uppercase">{lead.store === 'sp' ? 'S. Paulo' : 'Rio'}</span>
                                                         </div>
                                                     </td>
-                                                    <td className="px-8 py-4">
-                                                        <span className="text-xs font-black text-slate-900">{formatCurrency(getInvestmentValue(lead.investment))}</span>
+                                                    <td className="px-6 py-2.5">
+                                                        <span className="text-[11px] font-black text-slate-900">{formatCurrency(getInvestmentValue(lead.investment))}</span>
                                                     </td>
-                                                    <td className="px-8 py-4">
-                                                        <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter ${getStatusColor(lead.status)}`}>
+                                                    <td className="px-6 py-2.5">
+                                                        <span className={`px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-tighter ${getStatusColor(lead.status)}`}>
                                                             {lead.status.replace('_', ' ')}
                                                         </span>
                                                     </td>
-                                                    <td className="px-8 py-4 text-right">
-                                                        <button className="p-2 rounded-lg bg-slate-50 text-slate-400 group-hover:bg-[#004243] group-hover:text-white transition-all">
-                                                            <ArrowUpRight size={14} />
+                                                    <td className="px-6 py-2.5 text-right">
+                                                        <button className="p-1.5 rounded-lg bg-slate-50 text-slate-400 group-hover:bg-[#004243] group-hover:text-white transition-all">
+                                                            <ArrowUpRight size={12} />
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -281,13 +281,13 @@ export default function Dashboard() {
                         </div>
 
                         {/* Sidebar Analytics */}
-                        <div className="col-span-12 lg:col-span-4 space-y-8">
-                            <div className="bg-white p-8 rounded-[2.5rem] shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-slate-100 flex flex-col items-center">
-                                <div className="w-full mb-6">
-                                    <h3 className="text-xl font-black text-slate-900 tracking-tight">Por Loja</h3>
-                                    <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Volume de leads por unidade</p>
+                        <div className="col-span-12 lg:col-span-4 space-y-6">
+                            <div className="bg-white p-6 rounded-3xl shadow-[0_8px_40px_rgba(0,0,0,0.02)] border border-slate-100 flex flex-col items-center">
+                                <div className="w-full mb-4">
+                                    <h3 className="text-lg font-black text-slate-900 tracking-tight">Por Loja</h3>
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Volume de leads por unidade</p>
                                 </div>
-                                <div className="h-64 w-full relative flex items-center justify-center">
+                                <div className="h-48 w-full relative flex items-center justify-center">
                                     <ResponsiveContainer width="100%" height="100%">
                                         <PieChart>
                                             <Pie
@@ -310,30 +310,30 @@ export default function Dashboard() {
                                         </PieChart>
                                     </ResponsiveContainer>
                                     <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                                        <div className="text-3xl font-black text-slate-900 leading-none">{totalLeadsCount}</div>
-                                        <div className="text-[10px] font-black text-slate-400 mt-1 uppercase tracking-widest">Total</div>
+                                        <div className="text-2xl font-black text-slate-900 leading-none">{totalLeadsCount}</div>
+                                        <div className="text-[9px] font-black text-slate-400 mt-1 uppercase tracking-widest">Total</div>
                                     </div>
                                 </div>
-                                <div className="w-full space-y-3 mt-4">
+                                <div className="w-full space-y-2 mt-4">
                                     {storeData.map((item, i) => (
-                                        <div key={i} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50/50 border border-slate-100/50">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-2 h-2 rounded-full" style={{ backgroundColor: item.fill }}></div>
-                                                <span className="text-xs font-black text-slate-600 uppercase tracking-tighter">{item.name}</span>
+                                        <div key={i} className="flex items-center justify-between p-2.5 rounded-xl bg-slate-50/50 border border-slate-100/50">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: item.fill }}></div>
+                                                <span className="text-[11px] font-black text-slate-600 uppercase tracking-tighter">{item.name}</span>
                                             </div>
-                                            <span className="text-xs font-black text-slate-900">{item.value} leads</span>
+                                            <span className="text-[11px] font-black text-slate-900">{item.value} leads</span>
                                         </div>
                                     ))}
                                 </div>
                             </div>
 
-                            <div className="bg-[#004243] p-8 rounded-[2.5rem] shadow-[0_20px_40px_rgba(0,66,67,0.15)] text-white relative overflow-hidden">
-                                <div className="p-4 bg-white/10 rounded-2xl w-fit mb-6">
-                                    <Calendar size={24} className="text-emerald-400" />
+                            <div className="bg-[#004243] p-6 rounded-3xl shadow-[0_20px_40px_rgba(0,66,67,0.15)] text-white relative overflow-hidden">
+                                <div className="p-3 bg-white/10 rounded-xl w-fit mb-4">
+                                    <Calendar size={20} className="text-emerald-400" />
                                 </div>
-                                <h4 className="text-lg font-black tracking-tight leading-tight mb-2">Próximos Passos</h4>
-                                <p className="text-xs text-white/70 font-bold leading-relaxed mb-6 italic">"A organização é a chave do sucesso na D'Mar Planejados."</p>
-                                <button className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-black uppercase tracking-widest rounded-2xl transition-all shadow-lg shadow-emerald-900/20">
+                                <h4 className="text-base font-black tracking-tight leading-tight mb-2">Próximos Passos</h4>
+                                <p className="text-[11px] text-white/70 font-bold leading-relaxed mb-5 italic">"A organização é a chave do sucesso na D'Mar Planejados."</p>
+                                <button className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-white text-[10px] font-black uppercase tracking-widest rounded-xl transition-all shadow-lg shadow-emerald-900/20">
                                     Agendar Follow-up
                                 </button>
                             </div>
