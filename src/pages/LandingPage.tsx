@@ -102,7 +102,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-white p-6 md:p-8 rounded-2xl border border-gray-100 shadow-2xl max-w-[400px] w-full mx-auto lg:ml-0 relative z-20 my-[-30px] lg:my-[-60px]"
+          className="bg-white/90 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/20 shadow-2xl max-w-[400px] w-full mx-auto lg:ml-0 relative z-20 my-[-30px] lg:my-[-60px]"
         >
           <div className="text-center mb-6">
             <h3 className="text-2xl text-gray-900 font-medium mb-1">
