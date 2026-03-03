@@ -327,12 +327,8 @@ const Pricing = () => {
 
 const About = () => {
   return (
-    <section id="about" className="py-24 bg-[#004243] text-white overflow-hidden relative">
-      {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-      <div className="absolute bottom-0 left-0 w-80 h-80 bg-black/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
-
-      <div className="max-w-5xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+    <section id="about" className="py-20 bg-[#004243] text-white overflow-hidden">
+      <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -340,35 +336,17 @@ const About = () => {
           viewport={{ once: true }}
           className="space-y-6"
         >
-          <div className="flex items-center gap-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-brand-accent">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-            <h3 className="text-sm tracking-[0.3em] font-light text-white/70 uppercase">Sobre a D'MAR</h3>
-          </div>
-
-          <h2 className="text-3xl md:text-5xl font-light leading-tight">
-            Mais de <span className="font-bold">10 anos</span> transformando sonhos de morar bem.
+          <h2 className="text-4xl md:text-5xl font-light leading-tight">
+            Sobre <span className="font-bold">Nós</span>
           </h2>
 
-          <div className="space-y-4 text-white/80 font-light leading-relaxed">
+          <div className="space-y-4 text-white/90 font-light leading-relaxed text-base">
             <p>
-              A D'MAR Planejados nasceu da paixão por design e funcionalidade. Nossa missão vai além de construir móveis: nós criamos ambientes que refletem a personalidade e o estilo de vida de cada cliente.
+              Há 15 anos, transformamos ambientes em experiências únicas através de móveis planejados que unem sofisticação, funcionalidade e alto padrão de acabamento.
             </p>
             <p>
-              Com fabricação própria e um rigoroso controle de qualidade, entregamos projetos de alto padrão que unem beleza estética, durabilidade e aproveitamento inteligente de espaços.
+              Somos uma empresa especializada em desenvolver projetos personalizados, pensados para refletir o estilo, as necessidades e o momento de cada cliente. Acreditamos que um ambiente bem planejado vai além da estética — ele melhora a rotina, valoriza o imóvel e traduz personalidade.
             </p>
-          </div>
-
-          <div className="pt-4 flex gap-8">
-            <div>
-              <p className="text-3xl font-bold text-brand-accent">2k+</p>
-              <p className="text-xs uppercase tracking-widest text-white/60 mt-1">Projetos Entregues</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-brand-accent">100%</p>
-              <p className="text-xs uppercase tracking-widest text-white/60 mt-1">Garantia D'MAR</p>
-            </div>
           </div>
         </motion.div>
 
@@ -377,14 +355,13 @@ const About = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="relative aspect-square md:aspect-[4/5] rounded-tl-[100px] rounded-br-[100px] overflow-hidden border-4 border-white/10 shadow-2xl"
+          className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl"
         >
           <img
             src="/fotoprincipal02.png"
-            alt="Showroom D'MAR"
+            alt="Ambiente Planejado D'MAR"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-[#004243] bg-opacity-20 mix-blend-overlay"></div>
         </motion.div>
       </div>
     </section>
