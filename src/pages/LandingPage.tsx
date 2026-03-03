@@ -56,12 +56,14 @@ const Hero = () => {
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
+        {/* Camada escura por cima para os textos ficarem legíveis */}
+        <div className="absolute inset-0 bg-black/60"></div>
       </div>
 
       <div className="max-w-5xl mx-auto px-6 relative z-10 w-full grid lg:grid-cols-2 gap-8 lg:gap-12 items-center py-8">
 
-        {/* Full width green band covering the middle of the screen horizontally */}
-        <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243]/95 z-[-1] shadow-2xl"></div>
+        {/* Removendo a faixa verde sólida que cobria metade da tela para a imagem aparecer */}
+        {/* <div className="absolute inset-y-0 w-[200vw] left-1/2 -translate-x-1/2 bg-[#004243]/95 z-[-1] shadow-2xl"></div> */}
 
         <div className="relative lg:pr-8">
 
