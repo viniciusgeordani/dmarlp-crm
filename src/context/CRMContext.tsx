@@ -38,6 +38,28 @@ export const CRMProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     fetchLeads();
+
+    // Inscrever-se para escutar novos leads do banco em tempo real
+    const channel = supabase
+      .channel('public:leads')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'leads' }, (payload) => {
+        // Quando um lead for inserido via Landing Page, ele cai aqui na hora para o Admin
+        setLeads((prevLeads) => {
+          // Checa se já não existe para evitar duplicação (caso a inserção foi feita na mesma aba)
+          if (prevLeads.some(l => l.id === payload.new.id)) return prevLeads;
+          return [payload.new as unknown as Lead, ...prevLeads];
+        });
+      })
+      .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'leads' }, (payload) => {
+        setLeads((prevLeads) =>
+          prevLeads.map(lead => lead.id === payload.new.id ? { ...lead, ...payload.new } : lead)
+        );
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   const fetchLeads = async () => {
