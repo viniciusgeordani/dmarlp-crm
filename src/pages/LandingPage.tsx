@@ -73,14 +73,8 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-white py-6 relative z-10"
           >
-            <div className="mb-4 flex items-center gap-4">
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" className="text-white">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-              </svg>
-              <div className="flex flex-col">
-                <h2 className="text-xl tracking-[0.3em] font-light leading-none text-white">D'MAR</h2>
-                <p className="text-white/80 text-[9px] tracking-[0.4em] uppercase mt-1 font-medium">Planejados</p>
-              </div>
+            <div className="mb-6">
+              <img src="/logo-branca.png" alt="D'MAR Planejados" className="h-10 md:h-14 lg:h-16 w-auto object-contain" />
             </div>
 
             <h1 className="mb-4 text-white flex flex-col gap-1">
@@ -476,11 +470,8 @@ const Footer = () => {
   return (
     <footer className="py-12 bg-[#0A0A0A] border-t border-white/5">
       <div className="max-w-5xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex items-center gap-2 text-white">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-brand-accent">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-          </svg>
-          <span className="text-lg tracking-[0.2em] font-light">D'MAR</span>
+        <div>
+          <img src="/logo-branca.png" alt="D'MAR Planejados" className="h-8 md:h-10 w-auto opacity-90 object-contain" />
         </div>
         <div className="text-xs text-gray-500 font-light">
           © {new Date().getFullYear()} D'Mar Móveis Planejados. Todos os direitos reservados.
