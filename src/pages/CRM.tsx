@@ -52,10 +52,10 @@ export default function CRM() {
   );
 
   return (
-    <div className="h-screen bg-[#F5F7FA] text-gray-800 font-sans flex overflow-hidden">
+    <div className="min-h-screen w-full bg-slate-50 text-slate-800 font-sans flex overflow-hidden">
 
       {/* Sidebar */}
-      <aside className="w-[260px] bg-transparent flex flex-col flex-shrink-0 z-20">
+      <aside className="w-[260px] bg-white border-r border-slate-200 flex flex-col flex-shrink-0 z-20">
         {/* Brand */}
         <div className="h-20 flex items-center px-8">
           <Link to="/" className="flex items-center gap-3 text-[#004243]">
@@ -196,7 +196,7 @@ export default function CRM() {
         </div>
 
         {/* Kanban Board Container */}
-        <main className="flex-1 overflow-x-auto overflow-y-hidden px-5 pt-8 pb-4 custom-scrollbar bg-[#FAFBFC]">
+        <main className="flex-1 overflow-x-auto overflow-y-hidden px-5 pt-8 pb-4 custom-scrollbar bg-slate-50/50">
           <DragDropContext onDragEnd={handleDragEnd}>
             <div className="flex gap-6 h-full items-start min-w-max px-3">
               {COLUMNS.map(column => {
