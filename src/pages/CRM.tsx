@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { useCRM, LeadStatus } from '../context/CRMContext';
+import { Sidebar } from '../components/Sidebar';
 import {
   Search,
   LayoutDashboard,
@@ -19,7 +20,10 @@ import {
   X,
   Clock,
   MessageSquare,
-  DollarSign
+  DollarSign,
+  Briefcase,
+  Layers,
+  Settings
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -56,48 +60,18 @@ export default function CRM() {
     (lead?.email || '').toLowerCase().includes((searchTerm || '').toLowerCase())
   );
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedLeadId(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-slate-50 text-slate-800 font-sans flex overflow-hidden">
 
-      {/* Sidebar */}
-      <aside className="w-[260px] bg-white border-r border-slate-200 flex flex-col flex-shrink-0 z-20">
-        {/* Brand */}
-        <div className="h-20 flex items-center px-8">
-          <Link to="/" className="flex items-center gap-3 text-[#004243]">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-            </svg>
-            <span className="text-2xl font-extrabold tracking-wide">CRM</span>
-          </Link>
-        </div>
-
-        {/* Navigation */}
-        <nav className="flex-1 overflow-y-auto py-6 px-4 space-y-2">
-          <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl text-gray-500 hover:text-gray-900 transition-colors">
-            <div className="flex items-center gap-4">
-              <LayoutDashboard size={20} strokeWidth={2} />
-              <span className="font-medium">Dashboard</span>
-            </div>
-            <ChevronDown size={16} />
-          </a>
-
-          <div className="pt-2 pb-1">
-            <a href="#" className="flex items-center justify-between px-5 py-3.5 rounded-xl" style={{ backgroundColor: '#004243', color: '#fff' }}>
-              <div className="flex items-center gap-4">
-                <Target size={20} strokeWidth={2} />
-                <span className="font-medium">Leads</span>
-              </div>
-              <ChevronDown size={16} strokeWidth={2} />
-            </a>
-            <div className="pl-[3.5rem] py-3">
-              <a href="#" className="flex items-center gap-3 text-[13px] text-gray-400 hover:text-gray-600 py-2 font-medium transition-colors">
-                <span className="w-4 h-4 rounded-[4px] border-2 border-gray-300"></span>
-                Privacy Settings
-              </a>
-            </div>
-          </div>
-        </nav>
-      </aside>
+      <Sidebar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
       {/* Main Content Area */}
       <div className="flex-1 flex flex-col min-w-0 bg-white shadow-[-10px_0_30px_-15px_rgba(0,0,0,0.05)] rounded-tl-[2rem] my-3 mr-3 overflow-hidden">
@@ -277,8 +251,8 @@ export default function CRM() {
         const lead = leads.find(l => l.id === selectedLeadId);
         if (!lead) return null;
         return (
-          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex justify-end transition-all">
-            <div className="w-full max-w-[576px] bg-white h-full shadow-2xl flex flex-col animate-slideInRight">
+          <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex justify-end transition-all" onClick={() => setSelectedLeadId(null)}>
+            <div className="w-full max-w-[576px] bg-white h-full shadow-2xl flex flex-col animate-slideInRight" onClick={(e) => e.stopPropagation()}>
               {/* Header */}
               <div className="px-8 py-7 border-b border-gray-100 flex items-center justify-between pb-6 shrink-0">
                 <div>
