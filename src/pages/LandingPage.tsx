@@ -282,10 +282,10 @@ const Pricing = () => {
         {/* Plan Cards as Pure Images */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           {[
-            { id: '50m', src: '/card-50.png', alt: 'Plano 50m²' },
-            { id: '70m', src: '/card-50.png', alt: 'Plano 70m²' },
-            { id: '90m', src: '/card-50.png', alt: 'Plano 90m²' },
-            { id: '120m', src: '/card-50.png', alt: 'Plano 120m²' }
+            { id: '50m', src: '/plano50m2.png', alt: 'Plano 50m²' },
+            { id: '70m', src: '/plano50m2.png', alt: 'Plano 70m²' },
+            { id: '90m', src: '/plano50m2.png', alt: 'Plano 90m²' },
+            { id: '120m', src: '/plano50m2.png', alt: 'Plano 120m²' }
           ].map((plan, index) => (
             <motion.div
               key={plan.id}
