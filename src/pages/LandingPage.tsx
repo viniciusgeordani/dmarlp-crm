@@ -19,7 +19,7 @@ import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useCRM } from '../context/CRMContext';
 
-import bgImage from '../../public/fundo-sala.jpg';
+import bgImage from '../../public/fotoprincipal02.png';
 
 const Hero = () => {
   const [formStatus, setFormStatus] = useState<'idle' | 'success'>('idle');
@@ -325,12 +325,12 @@ const Pricing = () => {
 
 const Portfolio = () => {
   const projects = [
-    "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600121848594-d8644e57abab?q=80&w=800&auto=format&fit=crop",
-    "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?q=80&w=800&auto=format&fit=crop"
+    "/fotoprincipal02.png",
+    "/fotoprincipal02.png",
+    "/fotoprincipal02.png",
+    "/fotoprincipal02.png",
+    "/fotoprincipal02.png",
+    "/fotoprincipal02.png"
   ];
 
   return (
