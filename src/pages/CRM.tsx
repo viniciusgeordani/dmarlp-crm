@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DragDropContext, Droppable, Draggable, DropResult } from '@hello-pangea/dnd';
 import { useCRM, LeadStatus } from '../context/CRMContext';
 import { Sidebar } from '../components/Sidebar';
@@ -36,9 +36,10 @@ const COLUMNS: { id: LeadStatus; title: string; dot: string; defaultBadge: strin
 ];
 
 export default function CRM() {
-  const { leads, updateLeadStatus, updateLeadDetails } = useCRM();
+  const { leads, updateLeadStatus, updateLeadDetails, deleteLead } = useCRM();
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedLeadId, setSelectedLeadId] = useState<string | null>(null);
+  const [openMenuId, setOpenMenuId] = useState<string | null>(null);
 
   const handleDragEnd = (result: DropResult) => {
     const { destination, source, draggableId } = result;
@@ -64,9 +65,34 @@ export default function CRM() {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') setSelectedLeadId(null);
     };
+    const handleClickOutside = (e: MouseEvent) => {
+      // Close menu if clicking outside of any dropdown button/menu
+      const target = e.target as HTMLElement;
+      if (!target.closest('.dropdown-menu-container') && !target.closest('.dropdown-button')) {
+        setOpenMenuId(null);
+      }
+    };
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
+
+  const handleDeleteLead = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (window.confirm("Certeza que deseja excluir este lead?")) {
+      deleteLead(id);
+    }
+    setOpenMenuId(null);
+  };
+
+  const handleEditLead = (id: string, e: React.MouseEvent) => {
+    e.stopPropagation();
+    setSelectedLeadId(id);
+    setOpenMenuId(null);
+  };
 
   return (
     <div className="min-h-screen w-full bg-slate-50 text-slate-800 font-sans flex overflow-hidden">
@@ -181,51 +207,71 @@ export default function CRM() {
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
                                     {...provided.dragHandleProps}
-                                    onClick={() => setSelectedLeadId(lead.id)}
-                                    className={`bg-white p-5 rounded-[20px] shadow-[0_4px_16px_rgba(0,0,0,0.03)] border cursor-pointer ${snapshot.isDragging ? 'shadow-2xl border-[#004243]/40 rotate-2 z-50 ring-[6px] ring-[#004243]/5' : 'border-gray-100/50 hover:border-gray-200 hover:shadow-lg hover:-translate-y-0.5'} transition-all`}
+                                    className={`bg-white p-4 rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.04)] border relative transition-all ${snapshot.isDragging ? 'shadow-xl border-[#004243]/30 scale-[1.02] z-50' : 'border-gray-100/60 hover:border-gray-200 hover:shadow-md'}`}
                                   >
-                                    <div className="flex justify-between items-start mb-5">
-                                      <div className="flex items-center gap-3">
-                                        <img src={`https://ui-avatars.com/api/?name=${(lead?.name || 'User').split(' ').join('+')}&background=random&color=fff&size=100`} className="w-11 h-11 rounded-full object-cover shadow-sm bg-gray-50" />
-                                        <div className="flex flex-col gap-1.5">
-                                          <h4 className="font-bold text-[15px] text-gray-900 leading-tight line-clamp-1">{lead?.name || 'Sem Nome'}</h4>
-                                          <span className="text-[12px] font-medium text-gray-400 leading-none">
-                                            Hoje 10:30PM
-                                          </span>
+                                    {/* Header do Card */}
+                                    <div className="flex items-start justify-between mb-3 relative">
+                                      <div className="flex items-center gap-3 w-full pr-6">
+                                        <img src={`https://ui-avatars.com/api/?name=${(lead?.name || 'User').split(' ').join('+')}&background=random&color=fff&size=80`} className="w-10 h-10 rounded-full object-cover shadow-sm flex-shrink-0" alt={lead?.name} />
+                                        <div className="flex flex-col min-w-0 flex-1">
+                                          <h4 className="font-bold text-[14px] text-slate-800 truncate" title={lead?.name}>{lead?.name || 'Vazio'}</h4>
+                                          <span className="text-[12px] font-medium text-slate-500 truncate mt-0.5">{lead.phone || 'Sem telefone'}</span>
                                         </div>
+                                      </div>
+
+                                      {/* Menu de Opções */}
+                                      <div className="absolute top-0 right-0">
+                                        <button
+                                          className="dropdown-button text-slate-400 hover:text-slate-700 p-1 rounded-md hover:bg-slate-50 transition-colors"
+                                          onClick={(e) => {
+                                            e.stopPropagation();
+                                            setOpenMenuId(openMenuId === lead.id ? null : lead.id);
+                                          }}
+                                        >
+                                          <MoreVertical size={16} />
+                                        </button>
+
+                                        {openMenuId === lead.id && (
+                                          <div className="dropdown-menu-container absolute right-0 top-6 mt-1 w-32 bg-white rounded-lg shadow-lg border border-slate-100 py-1 z-50 animate-in fade-in zoom-in duration-150">
+                                            <button
+                                              className="w-full text-left px-3 py-2 text-xs font-medium text-slate-600 hover:bg-slate-50 hover:text-[#004243] transition-colors"
+                                              onClick={(e) => handleEditLead(lead.id, e)}
+                                            >
+                                              Editar
+                                            </button>
+                                            <button
+                                              className="w-full text-left px-3 py-2 text-xs font-medium text-red-600 hover:bg-red-50 transition-colors"
+                                              onClick={(e) => handleDeleteLead(lead.id, e)}
+                                            >
+                                              Excluir
+                                            </button>
+                                          </div>
+                                        )}
                                       </div>
                                     </div>
 
-                                    <div className="space-y-[14px]">
-                                      <div className="flex items-center gap-3 text-gray-400">
-                                        <Phone size={15} strokeWidth={2.5} />
-                                        <span className="text-[13px] font-medium">{lead.phone || 'N/A'}</span>
-                                      </div>
-                                      <div className="flex items-center gap-3 text-gray-400">
-                                        <Mail size={15} strokeWidth={2.5} />
-                                        <span className="text-[13px] font-medium truncate pr-2">{lead.email}</span>
-                                      </div>
+                                    {/* Linha Divisória */}
+                                    <div className="h-px bg-slate-100/80 mb-3 w-full"></div>
 
-                                      {(lead.environments || lead.investment) && (
-                                        <div className="pt-4 mt-4 border-t border-gray-100 space-y-3">
-                                          {lead.environments && (
-                                            <p className="text-[13px] text-gray-500 line-clamp-2 leading-relaxed">
-                                              <strong className="text-gray-800">Desc: </strong>
-                                              {lead.environments}
-                                            </p>
-                                          )}
-                                          {lead.investment && (
-                                            <div className="flex items-center gap-2 text-[#004243] bg-[#004243]/5 px-2.5 py-1.5 rounded-lg w-fit">
-                                              <DollarSign size={14} strokeWidth={2.5} />
-                                              <span className="text-[12px] font-bold tracking-wide">{lead.investment}</span>
-                                            </div>
-                                          )}
+                                    {/* Corpo do Card */}
+                                    <div className="flex flex-col gap-2 mb-4">
+                                      {lead.email && (
+                                        <div className="flex items-center gap-2 text-slate-500">
+                                          <Mail size={13} strokeWidth={2} className="flex-shrink-0" />
+                                          <span className="text-[12px] font-medium truncate" title={lead.email}>{lead.email}</span>
+                                        </div>
+                                      )}
+                                      {lead.investment && (
+                                        <div className="flex items-center gap-2 text-slate-500">
+                                          <DollarSign size={13} strokeWidth={2} className="flex-shrink-0" />
+                                          <span className="text-[12px] font-bold text-emerald-600">{lead.investment}</span>
                                         </div>
                                       )}
                                     </div>
 
-                                    <div className="mt-6">
-                                      <span className={`inline-flex items-center px-3 py-1.5 rounded-lg text-xs font-bold ${badgeColor}`}>
+                                    {/* Footer do Card */}
+                                    <div>
+                                      <span className={`inline-flex items-center px-3 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${badgeColor}`}>
                                         {badgeText}
                                       </span>
                                     </div>
