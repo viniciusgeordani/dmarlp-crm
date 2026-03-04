@@ -86,7 +86,7 @@ const Hero = () => {
               <span className="text-2xl md:text-3xl lg:text-4xl font-light tracking-wide uppercase">
                 Referência em
               </span>
-              <span className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight">
+              <span className="text-2xl md:text-3xl lg:text-4xl font-bold leading-tight text-brand-accent">
                 MÓVEIS PLANEJADOS
               </span>
             </h1>
