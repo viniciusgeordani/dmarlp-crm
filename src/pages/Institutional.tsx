@@ -211,9 +211,9 @@ export default function Institutional() {
 
             {/* Content (Right) */}
             <div>
-              <h2 className="text-xl md:text-2xl tracking-widest font-medium text-stone-900 uppercase mb-6 leading-tight">
-                Tranquilidade para você viver seu projeto <br/>
-                <span className="text-[#e9ad81]">sem preocupações</span>
+              <h2 className="text-2xl md:text-3xl tracking-[0.2em] font-medium text-stone-900 uppercase mb-6 leading-tight">
+                10 ANOS DE <br/>
+                <span className="text-[#e9ad81]">GARANTIA</span>
               </h2>
               <p className="text-stone-500 font-light leading-relaxed mb-6 text-sm max-w-md">
                 A garantia D'Mar Móveis é um cuidado contínuo. Nossos processos são claros, registrados e pensados para resolver rapidamente qualquer necessidade. Você sente a diferença na segurança e no suporte.
