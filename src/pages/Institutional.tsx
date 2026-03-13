@@ -211,29 +211,30 @@ export default function Institutional() {
 
             {/* Content (Right) */}
             <div>
-              <h2 className="text-3xl md:text-4xl font-extralight text-stone-900 leading-tight mb-8">
-                Tranquilidade para você viver seu projeto <span className="font-bold text-[#e9ad81]">sem preocupações</span>
+              <h2 className="text-xl md:text-2xl tracking-widest font-medium text-stone-900 uppercase mb-6 leading-tight">
+                Tranquilidade para você viver seu projeto <br/>
+                <span className="text-[#e9ad81]">sem preocupações</span>
               </h2>
-              <p className="text-stone-500 font-light leading-relaxed mb-10 text-lg">
+              <p className="text-stone-500 font-light leading-relaxed mb-6 text-sm max-w-md">
                 A garantia D'Mar Móveis é um cuidado contínuo. Nossos processos são claros, registrados e pensados para resolver rapidamente qualquer necessidade. Você sente a diferença na segurança e no suporte.
               </p>
 
-              <ul className="space-y-6 mb-12">
+              <ul className="space-y-3 mb-8">
                 {[
                   'Atendimento ágil com acompanhamento personalizado.',
                   'Critérios transparentes e orientações práticas.',
                   'Equipe preparada para manter seu móvel impecável.'
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-4 text-stone-700 font-light">
+                  <li key={idx} className="flex items-center gap-3 text-stone-700 font-light text-sm">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#e9ad81]"></div>
                     {item}
                   </li>
                 ))}
               </ul>
 
-              <button className="group flex items-center gap-4 bg-[#4B3B34] text-white px-10 py-4 text-xs font-light uppercase tracking-[0.2em] transition-all hover:bg-[#3d302a] shadow-lg shadow-black/5">
+              <button className="group flex items-center gap-4 bg-[#4B3B34] text-white px-8 py-3 text-[10px] font-light uppercase tracking-[0.2em] transition-all hover:bg-[#3d302a] shadow-lg shadow-black/5">
                 Conhecer a garantia completa
-                <ArrowRight size={14} className="transition-transform group-hover:translate-x-2" />
+                <ArrowRight size={12} className="transition-transform group-hover:translate-x-2" />
               </button>
             </div>
 
