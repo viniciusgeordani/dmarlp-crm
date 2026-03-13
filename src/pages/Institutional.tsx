@@ -75,9 +75,8 @@ export default function Institutional() {
           <img 
             src="/fotoprincipal02.png" 
             alt="Ambiente de Luxo" 
-            className="w-full h-full object-cover object-center scale-105 animate-[kenburns_20s_ease-out_infinite_alternate] opacity-60"
+            className="w-full h-full object-cover object-center scale-105 animate-[kenburns_20s_ease-out_infinite_alternate]"
           />
-          <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
