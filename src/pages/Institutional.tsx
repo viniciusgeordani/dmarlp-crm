@@ -106,9 +106,8 @@ export default function Institutional() {
         <div className="container mx-auto px-6 max-w-[1400px]">
           
           <div className="text-center mb-24 max-w-3xl mx-auto">
-             <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">Coleções</span>
-             <h2 className="text-4xl md:text-5xl font-medium text-stone-900 mb-6">Explore nossos Ambientes</h2>
-             <p className="text-stone-500 font-light text-lg">Inspire-se com soluções de design criadas para transcender tendências e abraçar o seu estilo de vida único.</p>
+             <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">CONHEÇA</span>
+             <h2 className="text-4xl md:text-5xl font-medium text-stone-900 mb-6 uppercase">NOSSOS AMBIENTES</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
