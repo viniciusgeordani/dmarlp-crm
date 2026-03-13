@@ -29,37 +29,29 @@ export default function Institutional() {
   return (
     <div className="min-h-screen font-sans bg-white text-stone-900 selection:bg-[#004243] selection:text-white">
 
-      {/* HEADER LUXO (Flutuante e Transparente) */}
-      <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
-          isScrolled 
-            ? 'bg-white/95 backdrop-blur-md shadow-sm border-stone-200 py-4' 
-            : 'bg-transparent border-white/20 py-6'
-        }`}
-      >
+      {/* HEADER LUXO (Estilo Referência) */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black py-4 border-b border-white/10 transition-all duration-300">
         <div className="container mx-auto px-6 max-w-[1400px] flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/">
               <img 
                 src="https://dmarplanejados.com.br/wp-content/uploads/2025/02/LOGOMARCA_DMAR_19.02.png" 
                 alt="D'Mar Planejados" 
-                className={`transition-all duration-500 ${isScrolled ? 'h-8 invert' : 'h-10'}`} 
+                className="h-8 invert" 
               />
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center gap-10">
+          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
             {[
-              { label: 'Unidades', id: 'lojas' },
-              { label: 'Nossa Essência', id: 'sobre' },
               { label: 'Ambientes', id: 'ambientes' },
+              { label: 'Sobre Nós', id: 'sobre' },
+              { label: 'Unidades', id: 'lojas' },
             ].map((item) => (
               <button 
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm tracking-[0.15em] uppercase font-light transition-colors hover:text-[#c6a87c] ${
-                  isScrolled ? 'text-stone-800' : 'text-white'
-                }`}
+                className="text-[11px] lg:text-xs tracking-[0.15em] uppercase font-light text-white hover:text-[#e9ad81] transition-colors"
               >
                 {item.label}
               </button>
@@ -69,58 +61,40 @@ export default function Institutional() {
           <div className="flex items-center gap-6">
             <Link 
               to="/lp" 
-              className={`hidden md:flex items-center gap-2 text-sm font-light uppercase tracking-widest px-6 py-2.5 border transition-all duration-300 ${
-                isScrolled 
-                  ? 'border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white' 
-                  : 'border-white text-white hover:bg-white hover:text-stone-900'
-              }`}
+              className="hidden md:flex items-center justify-center bg-[#004041] hover:bg-[#002f30] text-white text-[11px] lg:text-xs font-light uppercase tracking-widest px-6 py-3 transition-colors duration-300"
             >
-              Orçamento
+              Solicitar Orçamento
             </Link>
           </div>
         </div>
       </header>
 
-      {/* HERO SECTION 100vh */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* HERO SECTION 100vh (Abaixo do Header) */}
+      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
             alt="Ambiente de Luxo" 
-            className="w-full h-full object-cover object-center scale-105 animate-[kenburns_20s_ease-out_infinite_alternate]"
+            className="w-full h-full object-cover object-center scale-105 animate-[kenburns_20s_ease-out_infinite_alternate] opacity-60"
           />
-          <div className="absolute inset-0 bg-stone-900/40"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-stone-900/80 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
         
-        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto mt-20">
-          <p className="text-white/80 uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-light">
-            Arte em Marcenaria
-          </p>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-white font-serif leading-tight mb-8 drop-shadow-lg">
-            Exclusividade em <br/><span className="italic font-light text-[#c6a87c]">cada detalhe.</span>
+        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-light uppercase tracking-wide leading-tight mb-8">
+            Referência em<br />Móveis Planejados
           </h1>
-          <p className="text-white/90 text-lg md:text-xl font-light max-w-2xl mx-auto mb-12 leading-relaxed">
-            Projetos assinados que transformam casas em verdadeiras obras de arte, com qualidade premium e design atemporal.
+          <p className="text-white/90 text-lg md:text-xl font-light mx-auto mb-12">
+            Há mais de uma década, transformando espaços com sofisticação e praticidade.
           </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-            <Link 
-              to="/lp" 
-              className="bg-[#c6a87c] text-white px-10 py-4 text-sm font-light uppercase tracking-[0.2em] hover:bg-white hover:text-stone-900 transition-all duration-500 w-full sm:w-auto text-center"
-            >
-              Inicie seu Projeto
-            </Link>
+          <div className="flex justify-center">
             <button 
               onClick={() => scrollToSection('ambientes')}
-              className="px-10 py-4 text-sm font-light uppercase tracking-[0.2em] text-white border border-white hover:bg-white/10 transition-all duration-500 w-full sm:w-auto"
+              className="bg-[#004041] border border-white/20 text-white px-12 py-4 text-xs font-light uppercase tracking-[0.2em] hover:bg-white hover:text-[#004041] transition-all duration-300"
             >
-              Ver Inspirações
+              Ambientes
             </button>
           </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <ChevronRight className="text-white/50 rotate-90" size={32} strokeWidth={1} />
         </div>
       </section>
 
@@ -146,9 +120,9 @@ export default function Institutional() {
             </div>
             
             <div className="order-1 lg:order-2 lg:pl-10">
-              <span className="text-[#c6a87c] font-light tracking-[0.2em] text-xs uppercase mb-6 block">Nossa Essência</span>
+              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-6 block">Nossa Essência</span>
               <h2 className="text-4xl md:text-5xl font-serif text-stone-900 leading-tight mb-10">
-                A perfeição <br/>mora nos <span className="italic text-[#004243]">detalhes</span>.
+                A perfeição <br/>mora nos <span className="italic text-[#004041]">detalhes</span>.
               </h2>
               
               <div className="space-y-6 text-stone-500 font-light leading-relaxed text-lg mb-12">
@@ -158,11 +132,11 @@ export default function Institutional() {
 
               <div className="grid grid-cols-2 gap-12 border-t border-stone-200 pt-10">
                  <div>
-                   <h4 className="text-5xl font-serif text-[#004243] mb-3">10<span className="text-xl">anos</span></h4>
+                   <h4 className="text-5xl font-serif text-[#004041] mb-3">10<span className="text-xl">anos</span></h4>
                    <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Garantia Total</p>
                  </div>
                  <div>
-                   <h4 className="text-5xl font-serif text-[#004243] mb-3">+2k</h4>
+                   <h4 className="text-5xl font-serif text-[#004041] mb-3">+2k</h4>
                    <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Projetos Executados</p>
                  </div>
               </div>
@@ -176,7 +150,7 @@ export default function Institutional() {
         <div className="container mx-auto px-6 max-w-[1400px]">
           
           <div className="text-center mb-24 max-w-3xl mx-auto">
-             <span className="text-[#c6a87c] font-light tracking-[0.2em] text-xs uppercase mb-4 block">Coleções</span>
+             <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">Coleções</span>
              <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">Explore nossos Ambientes</h2>
              <p className="text-stone-500 font-light text-lg">Inspire-se com soluções de design criadas para transcender tendências e abraçar o seu estilo de vida único.</p>
           </div>
@@ -242,7 +216,7 @@ export default function Institutional() {
             </div>
 
             <div className="md:col-span-2 md:col-start-7">
-              <h4 className="text-xs uppercase tracking-[0.2em] text-[#c6a87c] mb-8 font-light">Navegação</h4>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-[#e9ad81] mb-8 font-light">Navegação</h4>
               <ul className="space-y-4">
                 <li><button onClick={() => scrollToSection('sobre')} className="text-stone-400 hover:text-white transition-colors text-sm font-light">O Manifesto</button></li>
                 <li><button onClick={() => scrollToSection('ambientes')} className="text-stone-400 hover:text-white transition-colors text-sm font-light">Coleções</button></li>
@@ -251,7 +225,7 @@ export default function Institutional() {
             </div>
 
             <div id="lojas" className="md:col-span-4">
-              <h4 className="text-xs uppercase tracking-[0.2em] text-[#c6a87c] mb-8 font-light">Nossos Studios</h4>
+              <h4 className="text-xs uppercase tracking-[0.2em] text-[#e9ad81] mb-8 font-light">Nossos Studios</h4>
               <ul className="space-y-8">
                 <li>
                   <p className="text-white text-sm tracking-widest uppercase mb-2">São Paulo</p>
