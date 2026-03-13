@@ -199,11 +199,10 @@ export default function Institutional() {
             {/* Text Content (Right) */}
             <div className="w-full lg:w-1/2">
               <div className="max-w-xl">
-                <span className="text-[#4B3B34] font-light tracking-[0.3em] text-xs uppercase mb-6 block">Sobre Nós</span>
+                <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">CONHEÇA</span>
                 
-                <h2 className="text-5xl md:text-6xl font-extralight text-stone-900 leading-tight mb-10">
-                  Design que inspira <br/>
-                  <span className="font-bold text-[#4B3B34]">viver bem</span>
+                <h2 className="text-2xl md:text-3xl tracking-widest font-medium text-stone-900 uppercase mb-10">
+                  SOBRE NÓS
                 </h2>
                 
                 <div className="space-y-6 text-stone-500 font-light leading-relaxed text-lg mb-12">
@@ -214,11 +213,6 @@ export default function Institutional() {
                     Com anos de tradição e um olhar incansável para as tendências de design de interiores, nossa equipe une tecnologia de ponta e acabamento artesanal. Cada projeto é único, pensado milimetricamente para refletir o seu estilo de vida.
                   </p>
                 </div>
-
-                <button className="mt-16 group flex items-center gap-4 text-sm uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-4 hover:border-[#4B3B34] transition-all">
-                  CONHEÇA NOSSA HISTÓRIA
-                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-2" />
-                </button>
               </div>
             </div>
 
@@ -227,7 +221,7 @@ export default function Institutional() {
       </section>
 
       {/* FOOTER LUXO */}
-      <footer className="bg-stone-950 text-white pt-32 pb-12">
+      <footer className="bg-[#004243] text-white pt-32 pb-12">
         <div className="container mx-auto px-6 max-w-[1400px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
             
