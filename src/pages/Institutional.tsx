@@ -181,47 +181,83 @@ export default function Institutional() {
       </section>
 
       {/* MANIFESTO / ESSÊNCIA (Sobre a marca) */}
-      <section id="sobre" className="py-32 bg-stone-50">
+      <section id="sobre" className="py-40 bg-white overflow-hidden">
         <div className="container mx-auto px-6 max-w-[1400px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <div className="aspect-[3/4] w-full max-w-md mx-auto lg:ml-0 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Detalhe Marcenaria" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-10 -right-4 lg:-right-20 w-2/3 aspect-square bg-white p-4 shadow-xl hidden md:block">
-                <img 
-                  src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Processo" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
+          <div className="relative">
+            {/* Background Decorative Element */}
+            <div className="absolute -left-20 top-0 w-64 h-64 bg-stone-50 rounded-full blur-3xl opacity-60"></div>
             
-            <div className="order-1 lg:order-2 lg:pl-10">
-              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-6 block">Nossa Essência</span>
-              <h2 className="text-4xl md:text-5xl font-medium text-stone-900 leading-tight mb-10">
-                A perfeição <br/>mora nos <span className="italic text-[#004041]">detalhes</span>.
-              </h2>
+            <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
               
-              <div className="space-y-6 text-stone-500 font-light leading-relaxed text-lg mb-12">
-                <p>Nascemos do desejo de ir além do comum. A D'Mar Planejados não fabrica apenas móveis, nós esculpimos experiências para morar bem.</p>
-                <p>Nossas duas unidades reúnem o que há de mais moderno em tecnologia de produção europeia com o cuidado artesanal do marceneiro tradicional. O resultado são ambientes que impressionam à primeira vista e duram uma vida inteira.</p>
+              {/* Image Composition (Left) */}
+              <div className="w-full lg:w-1/2 relative">
+                <div className="relative z-10 aspect-[4/5] w-full max-w-lg overflow-hidden group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                    alt="D'Mar Essência" 
+                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 border-[20px] border-white/10 group-hover:border-white/0 transition-all duration-700"></div>
+                </div>
+                
+                {/* Secondary Overlapping Image */}
+                <div className="absolute -bottom-12 -right-6 lg:-right-12 w-1/2 aspect-square bg-white p-3 shadow-2xl z-20 hidden md:block group/sub">
+                  <div className="w-full h-full overflow-hidden">
+                    <img 
+                      src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                      alt="O Cuidado" 
+                      className="w-full h-full object-cover transition-transform duration-1000 group-hover/sub:scale-110"
+                    />
+                  </div>
+                </div>
+
+                {/* Vertical Decorative Line */}
+                <div className="absolute -left-8 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-[#e9ad81] to-transparent hidden lg:block"></div>
               </div>
 
-              <div className="grid grid-cols-2 gap-12 border-t border-stone-200 pt-10">
-                 <div>
-                   <h4 className="text-5xl font-medium text-[#004041] mb-3">10<span className="text-xl">anos</span></h4>
-                   <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Garantia Total</p>
-                 </div>
-                 <div>
-                   <h4 className="text-5xl font-medium text-[#004041] mb-3">+2k</h4>
-                   <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Projetos Executados</p>
-                 </div>
+              {/* Text Content (Right) */}
+              <div className="w-full lg:w-1/2 relative z-10">
+                <div className="max-w-xl">
+                  <div className="flex items-center gap-4 mb-8">
+                    <span className="h-[1px] w-12 bg-[#e9ad81]"></span>
+                    <span className="text-[#e9ad81] font-light tracking-[0.4em] text-[10px] uppercase">O Manifesto</span>
+                  </div>
+                  
+                  <h2 className="text-5xl md:text-7xl font-extralight text-stone-900 leading-[1.1] mb-12">
+                    A arte de <br/>
+                    <span className="italic font-serif text-[#4B3B34]">eternizar</span> <br/>
+                    cada espaço.
+                  </h2>
+                  
+                  <div className="space-y-8 text-stone-500 font-light leading-relaxed text-lg lg:text-xl border-l border-stone-100 pl-8 ml-1">
+                    <p className="indent-8">
+                      Nascemos da inquietude em transformar o ordinário em sublime. Para a <span className="text-stone-900 font-normal italic">D'Mar</span>, a marcenaria não é apenas uma indústria, é a expressão máxima da identidade de quem habita.
+                    </p>
+                    <p>
+                      Harmonizamos a precisão da engenharia de ponta com a alma do fazer artesanal. O resultado são refúgios que sussurram luxo e gritam durabilidade.
+                    </p>
+                  </div>
+
+                  <div className="mt-16 grid grid-cols-2 gap-16">
+                    <div className="group">
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-4 group-hover:text-[#e9ad81] transition-colors">Precisão Alemã</p>
+                      <h4 className="text-4xl font-light text-stone-900 mb-2">10 <span className="text-lg font-serif italic text-[#4B3B34]">anos</span></h4>
+                      <div className="h-[1px] w-0 bg-[#e9ad81] group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                    <div className="group">
+                      <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-4 group-hover:text-[#e9ad81] transition-colors">Legado Construído</p>
+                      <h4 className="text-4xl font-light text-stone-900 mb-2">+2<span className="text-lg font-serif italic text-[#4B3B34]">mil</span></h4>
+                      <div className="h-[1px] w-0 bg-[#e9ad81] group-hover:w-full transition-all duration-700"></div>
+                    </div>
+                  </div>
+                  
+                  <button className="mt-16 group flex items-center gap-4 text-xs uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-2 hover:border-[#e9ad81] transition-all">
+                    Conheça nossa história
+                    <ArrowRight className="transition-transform group-hover:translate-x-2" size={14} />
+                  </button>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
