@@ -110,42 +110,66 @@ export default function Institutional() {
              <h2 className="text-2xl md:text-3xl tracking-widest font-medium text-stone-900 uppercase">NOSSOS AMBIENTES</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Bloco Grande Vertical */}
-            <div className="group relative aspect-[3/4] md:row-span-2 overflow-hidden bg-stone-100">
-               <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Closets" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
-               <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                 <h3 className="text-white text-3xl font-medium mb-2">Closets & Dormitórios</h3>
-                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">Ver Detalhes <ArrowRight size={14}/></p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+            {/* Bloco 1 - Closets/Dormitorios */}
+            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+               <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Closets" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
+               <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                 <h3 className="text-white text-2xl font-medium mb-1">Dormitórios</h3>
+                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
-            {/* Bloco Horizontal Cima */}
-            <div className="group relative aspect-video md:aspect-auto md:h-[400px] overflow-hidden bg-stone-100">
-               <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cozinhas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
-               <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                 <h3 className="text-white text-3xl font-medium mb-2">Cozinhas Gourmet</h3>
-                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">Ver Detalhes <ArrowRight size={14}/></p>
+            {/* Bloco 2 - Cozinhas */}
+            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+               <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cozinhas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
+               <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                 <h3 className="text-white text-2xl font-medium mb-1">Cozinhas Gourmet</h3>
+                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
-            {/* Bloco Horizontal Baixo */}
-            <div className="group relative aspect-video md:aspect-auto md:h-[400px] overflow-hidden bg-stone-100">
-               <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Salas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
-               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
-               <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                 <h3 className="text-white text-3xl font-medium mb-2">Salas & Home Theater</h3>
-                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">Ver Detalhes <ArrowRight size={14}/></p>
+            {/* Bloco 3 - Salas */}
+            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+               <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
+               <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                 <h3 className="text-white text-2xl font-medium mb-1">Livings & Home</h3>
+                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
-          </div>
-          
-          <div className="mt-16 text-center">
-            <Link to="/lp" className="inline-block border border-stone-300 text-stone-500 hover:border-stone-900 hover:text-stone-900 px-10 py-4 text-sm font-light uppercase tracking-[0.2em] transition-all duration-300">
-              Ver Todos os Projetos
-            </Link>
+
+            {/* Bloco 4 - Corporativo */}
+            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+               <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporativo" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
+               <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                 <h3 className="text-white text-2xl font-medium mb-1">Corporativos</h3>
+                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+               </div>
+            </div>
+
+            {/* Bloco 5 - Área Gourmet */}
+            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+               <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Edículas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
+               <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                 <h3 className="text-white text-2xl font-medium mb-1">Áreas Externas</h3>
+                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+               </div>
+            </div>
+
+            {/* Bloco 6 - Banheiros */}
+            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+               <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banheiros" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+               <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
+               <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                 <h3 className="text-white text-2xl font-medium mb-1">Banheiros & Spas</h3>
+                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+               </div>
+            </div>
           </div>
         </div>
       </section>
