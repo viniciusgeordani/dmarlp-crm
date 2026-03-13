@@ -70,7 +70,7 @@ export default function Institutional() {
       </header>
 
       {/* HERO SECTION (Abaixo do Header) */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
+      <section className="relative min-h-[95vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="/fotoprincipal02.png" 
@@ -100,7 +100,7 @@ export default function Institutional() {
       </section>
 
       {/* CARDS DIFERENCIAIS (Sobrepostos) */}
-      <section className="relative z-20 -mt-24 md:-mt-32 px-4">
+      <section className="relative z-20 -mt-12 md:-mt-16 px-4">
         <div className="container mx-auto max-w-6xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 items-center">
             
