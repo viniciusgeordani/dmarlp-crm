@@ -99,53 +99,6 @@ export default function Institutional() {
         </div>
       </section>
 
-      {/* MANIFESTO / ESSÊNCIA (Sobre a marca) */}
-      <section id="sobre" className="py-32 bg-stone-50">
-        <div className="container mx-auto px-6 max-w-[1400px]">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-            <div className="order-2 lg:order-1 relative">
-              <div className="aspect-[3/4] w-full max-w-md mx-auto lg:ml-0 overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
-                  alt="Detalhe Marcenaria" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-10 -right-4 lg:-right-20 w-2/3 aspect-square bg-white p-4 shadow-xl hidden md:block">
-                <img 
-                  src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                  alt="Processo" 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            
-            <div className="order-1 lg:order-2 lg:pl-10">
-              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-6 block">Nossa Essência</span>
-              <h2 className="text-4xl md:text-5xl font-serif text-stone-900 leading-tight mb-10">
-                A perfeição <br/>mora nos <span className="italic text-[#004041]">detalhes</span>.
-              </h2>
-              
-              <div className="space-y-6 text-stone-500 font-light leading-relaxed text-lg mb-12">
-                <p>Nascemos do desejo de ir além do comum. A D'Mar Planejados não fabrica apenas móveis, nós esculpimos experiências para morar bem.</p>
-                <p>Nossas duas unidades reúnem o que há de mais moderno em tecnologia de produção europeia com o cuidado artesanal do marceneiro tradicional. O resultado são ambientes que impressionam à primeira vista e duram uma vida inteira.</p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-12 border-t border-stone-200 pt-10">
-                 <div>
-                   <h4 className="text-5xl font-serif text-[#004041] mb-3">10<span className="text-xl">anos</span></h4>
-                   <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Garantia Total</p>
-                 </div>
-                 <div>
-                   <h4 className="text-5xl font-serif text-[#004041] mb-3">+2k</h4>
-                   <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Projetos Executados</p>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* AMBIENTES (Galeria Estilo Masonry / Luxo) */}
       <section id="ambientes" className="py-32 bg-white">
         <div className="container mx-auto px-6 max-w-[1400px]">
@@ -192,6 +145,53 @@ export default function Institutional() {
             <Link to="/lp" className="inline-block border border-stone-300 text-stone-500 hover:border-stone-900 hover:text-stone-900 px-10 py-4 text-sm font-light uppercase tracking-[0.2em] transition-all duration-300">
               Ver Todos os Projetos
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* MANIFESTO / ESSÊNCIA (Sobre a marca) */}
+      <section id="sobre" className="py-32 bg-stone-50">
+        <div className="container mx-auto px-6 max-w-[1400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+            <div className="order-2 lg:order-1 relative">
+              <div className="aspect-[3/4] w-full max-w-md mx-auto lg:ml-0 overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" 
+                  alt="Detalhe Marcenaria" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-10 -right-4 lg:-right-20 w-2/3 aspect-square bg-white p-4 shadow-xl hidden md:block">
+                <img 
+                  src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Processo" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            
+            <div className="order-1 lg:order-2 lg:pl-10">
+              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-6 block">Nossa Essência</span>
+              <h2 className="text-4xl md:text-5xl font-serif text-stone-900 leading-tight mb-10">
+                A perfeição <br/>mora nos <span className="italic text-[#004041]">detalhes</span>.
+              </h2>
+              
+              <div className="space-y-6 text-stone-500 font-light leading-relaxed text-lg mb-12">
+                <p>Nascemos do desejo de ir além do comum. A D'Mar Planejados não fabrica apenas móveis, nós esculpimos experiências para morar bem.</p>
+                <p>Nossas duas unidades reúnem o que há de mais moderno em tecnologia de produção europeia com o cuidado artesanal do marceneiro tradicional. O resultado são ambientes que impressionam à primeira vista e duram uma vida inteira.</p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-12 border-t border-stone-200 pt-10">
+                 <div>
+                   <h4 className="text-5xl font-serif text-[#004041] mb-3">10<span className="text-xl">anos</span></h4>
+                   <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Garantia Total</p>
+                 </div>
+                 <div>
+                   <h4 className="text-5xl font-serif text-[#004041] mb-3">+2k</h4>
+                   <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Projetos Executados</p>
+                 </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
