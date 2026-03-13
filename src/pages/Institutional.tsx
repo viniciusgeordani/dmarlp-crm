@@ -30,20 +30,20 @@ export default function Institutional() {
     <div className="min-h-screen font-sans bg-white text-stone-900 selection:bg-[#004243] selection:text-white">
 
       {/* HEADER LUXO (Estilo Referência) */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-black py-4 border-b border-white/10 transition-all duration-300">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white py-4 border-b border-stone-200 shadow-sm transition-all duration-300">
         <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/">
               <img 
                 src="https://dmarplanejados.com.br/wp-content/uploads/2025/02/LOGOMARCA_DMAR_19.02.png" 
                 alt="D'Mar Planejados" 
-                className="h-8 invert" 
+                className="h-8" 
               />
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center gap-12 lg:gap-16">
-            <nav className="flex items-center gap-8 lg:gap-12">
+          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+            <nav className="flex items-center gap-6 lg:gap-8">
               {[
                 { label: 'Ambientes', id: 'ambientes' },
                 { label: 'Sobre Nós', id: 'sobre' },
@@ -52,7 +52,7 @@ export default function Institutional() {
                 <button 
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-[11px] lg:text-xs tracking-[0.15em] uppercase font-light text-white hover:text-[#e9ad81] transition-colors"
+                  className="text-[11px] lg:text-xs tracking-widest uppercase font-medium text-stone-800 hover:text-[#004041] transition-colors"
                 >
                   {item.label}
                 </button>
@@ -82,7 +82,7 @@ export default function Institutional() {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white font-light uppercase tracking-wide leading-tight mb-8 drop-shadow-xl">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white font-medium uppercase tracking-wide leading-none mb-8 drop-shadow-xl">
             Referência em<br />Móveis Planejados
           </h1>
           <p className="text-white text-base md:text-lg font-light mx-auto mb-12 drop-shadow-md">
