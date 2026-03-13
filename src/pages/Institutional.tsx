@@ -102,7 +102,7 @@ export default function Institutional() {
 
 
       {/* AMBIENTES (Galeria Estilo Masonry / Luxo) */}
-      <section id="ambientes" className="py-24 bg-white">
+      <section id="ambientes" className="py-16 bg-white">
         <div className="container mx-auto px-6 max-w-[1400px]">
           
           <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -181,7 +181,7 @@ export default function Institutional() {
       </section>
 
        {/* SOBRE NÓS / ESSÊNCIA */}
-      <section id="sobre" className="py-24 bg-stone-50">
+      <section id="sobre" className="py-16 bg-stone-50">
         <div className="container mx-auto px-6 max-w-[1400px]">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             
