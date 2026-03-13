@@ -73,7 +73,7 @@ export default function Institutional() {
       <section className="relative h-screen flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
-            src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+            src="/fotoprincipal02.png" 
             alt="Ambiente de Luxo" 
             className="w-full h-full object-cover object-center scale-105 animate-[kenburns_20s_ease-out_infinite_alternate] opacity-60"
           />
