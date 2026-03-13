@@ -215,17 +215,6 @@ export default function Institutional() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 gap-12 pt-8">
-                  <div>
-                    <h4 className="text-4xl font-light text-stone-900 mb-2">100%</h4>
-                    <p className="text-[10px] uppercase tracking-widest text-[#4B3B34]">MDF DE QUALIDADE</p>
-                  </div>
-                  <div>
-                    <h4 className="text-4xl font-light text-stone-900 mb-2">+10</h4>
-                    <p className="text-[10px] uppercase tracking-widest text-[#4B3B34]">ANOS DE MERCADO</p>
-                  </div>
-                </div>
-                
                 <button className="mt-16 group flex items-center gap-4 text-sm uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-4 hover:border-[#4B3B34] transition-all">
                   CONHEÇA NOSSA HISTÓRIA
                   <ArrowRight size={16} className="transition-transform group-hover:translate-x-2" />
