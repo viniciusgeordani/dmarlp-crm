@@ -112,7 +112,7 @@ export default function Institutional() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Bloco 1 - Closets/Dormitorios */}
-            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+            <Link to="/galeria" className="block group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Closets" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -120,10 +120,10 @@ export default function Institutional() {
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
                  <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
-            </div>
+            </Link>
 
             {/* Bloco 2 - Cozinhas */}
-            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+            <Link to="/galeria" className="block group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cozinhas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -131,10 +131,10 @@ export default function Institutional() {
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
                  <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
-            </div>
+            </Link>
 
             {/* Bloco 3 - Salas */}
-            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+            <Link to="/galeria" className="block group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -142,10 +142,10 @@ export default function Institutional() {
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
                  <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
-            </div>
+            </Link>
 
             {/* Bloco 4 - Corporativo */}
-            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+            <Link to="/galeria" className="block group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporativo" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -153,10 +153,10 @@ export default function Institutional() {
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
                  <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
-            </div>
+            </Link>
 
             {/* Bloco 5 - Área Gourmet */}
-            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+            <Link to="/galeria" className="block group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Edículas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -164,10 +164,10 @@ export default function Institutional() {
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
                  <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
-            </div>
+            </Link>
 
             {/* Bloco 6 - Banheiros */}
-            <div className="group relative aspect-square overflow-hidden bg-stone-100">
+            <Link to="/galeria" className="block group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banheiros" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
@@ -175,7 +175,7 @@ export default function Institutional() {
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
                  <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
-            </div>
+            </Link>
           </div>
         </div>
       </section>
