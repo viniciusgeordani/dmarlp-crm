@@ -30,7 +30,7 @@ export default function Institutional() {
     <div className="min-h-screen font-sans bg-white text-stone-900 selection:bg-[#004243] selection:text-white">
 
       {/* HEADER LUXO (Estilo Referência) */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md py-4 border-b border-stone-200 shadow-sm transition-all duration-300">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-stone-200 ${isScrolled ? 'bg-white/80 backdrop-blur-md py-3 shadow-md' : 'bg-white py-5 shadow-sm'}`}>
         <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/">
@@ -55,7 +55,7 @@ export default function Institutional() {
                   className="relative group text-[11px] lg:text-xs tracking-widest uppercase font-medium text-stone-800 hover:text-[#004041] transition-colors py-1"
                 >
                   {item.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-[1px] bg-[#004041] transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#004041] transition-all duration-300 group-hover:w-full"></span>
                 </button>
               ))}
             </nav>
