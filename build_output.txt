@@ -1,0 +1,15 @@
+
+> react-example@0.0.0 build
+> vite build
+
+vite v6.4.1 building for production...
+transforming...
+✓ 27 modules transformed.
+✗ Build failed in 1.15s
+error during build:
+Could not resolve "../assets/logobranca.png" from "src/pages/Institutional.tsx"
+file: /Users/viniciusgeordani/Library/CloudStorage/GoogleDrive-viniciusgeordani@gmail.com/Meu Drive/D'Mar Planejados/Site LP + CRM/d'mar-planejados-lp-+-crm/src/pages/Institutional.tsx
+    at getRollupError (file:///Users/viniciusgeordani/Library/CloudStorage/GoogleDrive-viniciusgeordani@gmail.com/Meu%20Drive/D'Mar%20Planejados/Site%20LP%20+%20CRM/d'mar-planejados-lp-+-crm/node_modules/rollup/dist/es/shared/parseAst.js:402:41)
+    at error (file:///Users/viniciusgeordani/Library/CloudStorage/GoogleDrive-viniciusgeordani@gmail.com/Meu%20Drive/D'Mar%20Planejados/Site%20LP%20+%20CRM/d'mar-planejados-lp-+-crm/node_modules/rollup/dist/es/shared/parseAst.js:398:42)
+    at ModuleLoader.handleInvalidResolvedId (file:///Users/viniciusgeordani/Library/CloudStorage/GoogleDrive-viniciusgeordani@gmail.com/Meu%20Drive/D'Mar%20Planejados/Site%20LP%20+%20CRM/d'mar-planejados-lp-+-crm/node_modules/rollup/dist/es/shared/node-entry.js:21710:24)
+    at file:///Users/viniciusgeordani/Library/CloudStorage/GoogleDrive-viniciusgeordani@gmail.com/Meu%20Drive/D'Mar%20Planejados/Site%20LP%20+%20CRM/d'mar-planejados-lp-+-crm/node_modules/rollup/dist/es/shared/node-entry.js:21670:26
