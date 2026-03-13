@@ -180,85 +180,59 @@ export default function Institutional() {
         </div>
       </section>
 
-      {/* MANIFESTO / ESSÊNCIA (Sobre a marca) */}
-      <section id="sobre" className="py-40 bg-white overflow-hidden">
+       {/* SOBRE NÓS / ESSÊNCIA */}
+      <section id="sobre" className="py-32 bg-white">
         <div className="container mx-auto px-6 max-w-[1400px]">
-          <div className="relative">
-            {/* Background Decorative Element */}
-            <div className="absolute -left-20 top-0 w-64 h-64 bg-stone-50 rounded-full blur-3xl opacity-60"></div>
+          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             
-            <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-              
-              {/* Image Composition (Left) */}
-              <div className="w-full lg:w-1/2 relative">
-                <div className="relative z-10 aspect-[4/5] w-full max-w-lg overflow-hidden group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
-                    alt="D'Mar Essência" 
-                    className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 border-[20px] border-white/10 group-hover:border-white/0 transition-all duration-700"></div>
+            {/* Image (Left) - Square/Straight corners as requested */}
+            <div className="w-full lg:w-1/2">
+              <div className="relative aspect-square md:aspect-[4/5] lg:aspect-square w-full overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                  alt="D'Mar Interiores" 
+                  className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                />
+              </div>
+            </div>
+
+            {/* Text Content (Right) */}
+            <div className="w-full lg:w-1/2">
+              <div className="max-w-xl">
+                <span className="text-[#4B3B34] font-light tracking-[0.3em] text-xs uppercase mb-6 block">Sobre Nós</span>
+                
+                <h2 className="text-5xl md:text-6xl font-extralight text-stone-900 leading-tight mb-10">
+                  Design que inspira <br/>
+                  <span className="font-bold text-[#4B3B34]">viver bem</span>
+                </h2>
+                
+                <div className="space-y-6 text-stone-500 font-light leading-relaxed text-lg mb-12">
+                  <p>
+                    A D'Mar Planejados nasceu com um propósito claro: trazer exclusividade e alto padrão para cada ambiente que projetamos. Mais do que fabricar móveis, nós criamos o cenário onde a sua vida acontece.
+                  </p>
+                  <p>
+                    Com anos de tradição e um olhar incansável para as tendências de design de interiores, nossa equipe une tecnologia de ponta e acabamento artesanal. Cada projeto é único, pensado milimetricamente para refletir o seu estilo de vida.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-2 gap-12 pt-8">
+                  <div>
+                    <h4 className="text-4xl font-light text-stone-900 mb-2">100%</h4>
+                    <p className="text-[10px] uppercase tracking-widest text-[#4B3B34]">MDF DE QUALIDADE</p>
+                  </div>
+                  <div>
+                    <h4 className="text-4xl font-light text-stone-900 mb-2">+10</h4>
+                    <p className="text-[10px] uppercase tracking-widest text-[#4B3B34]">ANOS DE MERCADO</p>
+                  </div>
                 </div>
                 
-                {/* Secondary Overlapping Image */}
-                <div className="absolute -bottom-12 -right-6 lg:-right-12 w-1/2 aspect-square bg-white p-3 shadow-2xl z-20 hidden md:block group/sub">
-                  <div className="w-full h-full overflow-hidden">
-                    <img 
-                      src="https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                      alt="O Cuidado" 
-                      className="w-full h-full object-cover transition-transform duration-1000 group-hover/sub:scale-110"
-                    />
-                  </div>
-                </div>
-
-                {/* Vertical Decorative Line */}
-                <div className="absolute -left-8 top-1/4 bottom-1/4 w-[1px] bg-gradient-to-b from-transparent via-[#e9ad81] to-transparent hidden lg:block"></div>
+                <button className="mt-16 group flex items-center gap-4 text-xs uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-2 hover:border-[#4B3B34] transition-all">
+                  Conheça nossa história
+                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-2" />
+                </button>
               </div>
-
-              {/* Text Content (Right) */}
-              <div className="w-full lg:w-1/2 relative z-10">
-                <div className="max-w-xl">
-                  <div className="flex items-center gap-4 mb-8">
-                    <span className="h-[1px] w-12 bg-[#e9ad81]"></span>
-                    <span className="text-[#e9ad81] font-light tracking-[0.4em] text-[10px] uppercase">O Manifesto</span>
-                  </div>
-                  
-                  <h2 className="text-5xl md:text-7xl font-extralight text-stone-900 leading-[1.1] mb-12">
-                    A arte de <br/>
-                    <span className="italic font-serif text-[#4B3B34]">eternizar</span> <br/>
-                    cada espaço.
-                  </h2>
-                  
-                  <div className="space-y-8 text-stone-500 font-light leading-relaxed text-lg lg:text-xl border-l border-stone-100 pl-8 ml-1">
-                    <p className="indent-8">
-                      Nascemos da inquietude em transformar o ordinário em sublime. Para a <span className="text-stone-900 font-normal italic">D'Mar</span>, a marcenaria não é apenas uma indústria, é a expressão máxima da identidade de quem habita.
-                    </p>
-                    <p>
-                      Harmonizamos a precisão da engenharia de ponta com a alma do fazer artesanal. O resultado são refúgios que sussurram luxo e gritam durabilidade.
-                    </p>
-                  </div>
-
-                  <div className="mt-16 grid grid-cols-2 gap-16">
-                    <div className="group">
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-4 group-hover:text-[#e9ad81] transition-colors">Precisão Alemã</p>
-                      <h4 className="text-4xl font-light text-stone-900 mb-2">10 <span className="text-lg font-serif italic text-[#4B3B34]">anos</span></h4>
-                      <div className="h-[1px] w-0 bg-[#e9ad81] group-hover:w-full transition-all duration-700"></div>
-                    </div>
-                    <div className="group">
-                      <p className="text-[10px] uppercase tracking-[0.3em] text-stone-400 mb-4 group-hover:text-[#e9ad81] transition-colors">Legado Construído</p>
-                      <h4 className="text-4xl font-light text-stone-900 mb-2">+2<span className="text-lg font-serif italic text-[#4B3B34]">mil</span></h4>
-                      <div className="h-[1px] w-0 bg-[#e9ad81] group-hover:w-full transition-all duration-700"></div>
-                    </div>
-                  </div>
-                  
-                  <button className="mt-16 group flex items-center gap-4 text-xs uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-2 hover:border-[#e9ad81] transition-all">
-                    Conheça nossa história
-                    <ArrowRight className="transition-transform group-hover:translate-x-2" size={14} />
-                  </button>
-                </div>
-              </div>
-
             </div>
+
           </div>
         </div>
       </section>
