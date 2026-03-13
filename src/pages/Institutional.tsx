@@ -31,7 +31,7 @@ export default function Institutional() {
 
       {/* HEADER LUXO (Estilo Referência) */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-black py-4 border-b border-white/10 transition-all duration-300">
-        <div className="container mx-auto px-6 max-w-[1400px] flex items-center justify-between">
+        <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/">
               <img 
@@ -42,26 +42,26 @@ export default function Institutional() {
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center gap-8 lg:gap-12">
-            {[
-              { label: 'Ambientes', id: 'ambientes' },
-              { label: 'Sobre Nós', id: 'sobre' },
-              { label: 'Unidades', id: 'lojas' },
-            ].map((item) => (
-              <button 
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-[11px] lg:text-xs tracking-[0.15em] uppercase font-light text-white hover:text-[#e9ad81] transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+          <div className="hidden md:flex items-center gap-12 lg:gap-16">
+            <nav className="flex items-center gap-8 lg:gap-12">
+              {[
+                { label: 'Ambientes', id: 'ambientes' },
+                { label: 'Sobre Nós', id: 'sobre' },
+                { label: 'Unidades', id: 'lojas' },
+              ].map((item) => (
+                <button 
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="text-[11px] lg:text-xs tracking-[0.15em] uppercase font-light text-white hover:text-[#e9ad81] transition-colors"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
 
-          <div className="flex items-center gap-6">
             <Link 
               to="/lp" 
-              className="hidden md:flex items-center justify-center bg-[#004041] hover:bg-[#002f30] text-white text-[11px] lg:text-xs font-light uppercase tracking-widest px-6 py-3 transition-colors duration-300"
+              className="flex items-center justify-center bg-[#004041] hover:bg-[#002f30] text-white text-[11px] lg:text-xs font-light uppercase tracking-widest px-8 py-3.5 transition-colors duration-300"
             >
               Solicitar Orçamento
             </Link>
@@ -69,8 +69,8 @@ export default function Institutional() {
         </div>
       </header>
 
-      {/* HERO SECTION 100vh (Abaixo do Header) */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
+      {/* HERO SECTION (Abaixo do Header) */}
+      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="/fotoprincipal02.png" 
