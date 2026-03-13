@@ -180,6 +180,75 @@ export default function Institutional() {
         </div>
       </section>
 
+      {/* GARANTIA (Premium) */}
+      <section id="garantia" className="py-12 bg-stone-50/50">
+        <div className="container mx-auto px-6 max-w-[1400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            
+            {/* Dark Card (Left) */}
+            <div className="bg-[#004243] rounded-[2rem] p-10 md:p-14 relative overflow-hidden shadow-2xl">
+              <div className="relative z-10">
+                <span className="text-[#e9ad81] font-light tracking-[0.2em] text-[10px] uppercase mb-4 block">Garantia D'Mar Móveis</span>
+                <h3 className="text-3xl md:text-4xl font-medium text-white leading-tight mb-8">
+                  10 anos de segurança e pós-venda presente
+                </h3>
+                <p className="text-stone-300 font-light text-sm leading-relaxed mb-12 max-w-md">
+                  Nosso compromisso vai além da entrega. Nossa garantia protege seu investimento e garante acompanhamento real sempre que precisar.
+                </p>
+
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-2xl">
+                    <p className="text-[#e9ad81] text-xs font-medium uppercase tracking-wider mb-2">Cobertura Ampla</p>
+                    <p className="text-stone-400 text-[11px] leading-relaxed">Estrutura, acabamento e ajustes técnicos.</p>
+                  </div>
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-2xl">
+                    <p className="text-[#e9ad81] text-xs font-medium uppercase tracking-wider mb-2">Equipe Dedicada</p>
+                    <p className="text-stone-400 text-[11px] leading-relaxed">Atendimento técnico especializado e ágil.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Seal Overlay */}
+              <div className="absolute top-10 right-10 w-24 h-24 opacity-20 pointer-events-none">
+                <div className="relative w-full h-full flex items-center justify-center border-2 border-dashed border-white rounded-full">
+                  <span className="text-white font-bold text-2xl">10</span>
+                  <span className="absolute -bottom-1 text-white text-[8px] uppercase tracking-tighter">ANOS</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Content (Right) */}
+            <div>
+              <h2 className="text-3xl md:text-4xl font-extralight text-stone-900 leading-tight mb-8">
+                Tranquilidade para você viver seu projeto <span className="font-bold text-[#e9ad81]">sem preocupações</span>
+              </h2>
+              <p className="text-stone-500 font-light leading-relaxed mb-10 text-lg">
+                A garantia D'Mar Móveis é um cuidado contínuo. Nossos processos são claros, registrados e pensados para resolver rapidamente qualquer necessidade. Você sente a diferença na segurança e no suporte.
+              </p>
+
+              <ul className="space-y-6 mb-12">
+                {[
+                  'Atendimento ágil com acompanhamento personalizado.',
+                  'Critérios transparentes e orientações práticas.',
+                  'Equipe preparada para manter seu móvel impecável.'
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-center gap-4 text-stone-700 font-light">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#e9ad81]"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+
+              <button className="group flex items-center gap-4 bg-[#4B3B34] text-white px-10 py-4 text-xs font-light uppercase tracking-[0.2em] transition-all hover:bg-[#3d302a] shadow-lg shadow-black/5">
+                Conhecer a garantia completa
+                <ArrowRight size={14} className="transition-transform group-hover:translate-x-2" />
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
        {/* SOBRE NÓS / ESSÊNCIA */}
       <section id="sobre" className="py-12 bg-stone-50">
         <div className="container mx-auto px-6 max-w-[1400px]">
