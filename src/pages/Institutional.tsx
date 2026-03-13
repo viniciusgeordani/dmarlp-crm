@@ -181,7 +181,7 @@ export default function Institutional() {
       </section>
 
        {/* SOBRE NÓS / ESSÊNCIA */}
-      <section id="sobre" className="py-32 bg-white">
+      <section id="sobre" className="py-32 bg-stone-50">
         <div className="container mx-auto px-6 max-w-[1400px]">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             
@@ -226,9 +226,9 @@ export default function Institutional() {
                   </div>
                 </div>
                 
-                <button className="mt-16 group flex items-center gap-4 text-xs uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-2 hover:border-[#4B3B34] transition-all">
-                  Conheça nossa história
-                  <ArrowRight size={14} className="transition-transform group-hover:translate-x-2" />
+                <button className="mt-16 group flex items-center gap-4 text-sm uppercase tracking-[0.3em] font-medium text-stone-900 border-b border-stone-200 pb-4 hover:border-[#4B3B34] transition-all">
+                  CONHEÇA NOSSA HISTÓRIA
+                  <ArrowRight size={16} className="transition-transform group-hover:translate-x-2" />
                 </button>
               </div>
             </div>
