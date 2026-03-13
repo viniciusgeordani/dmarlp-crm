@@ -110,14 +110,15 @@ export default function Institutional() {
              <h2 className="text-2xl md:text-3xl tracking-widest font-medium text-stone-900 uppercase">NOSSOS AMBIENTES</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* Bloco 1 - Closets/Dormitorios */}
             <div className="group relative aspect-square overflow-hidden bg-stone-100">
                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Closets" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                 <h3 className="text-white text-2xl font-medium mb-1">Dormitórios</h3>
-                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+                 <h3 className="text-white text-2xl font-medium mb-1 relative">Dormitórios</h3>
+                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
+                 <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
@@ -126,8 +127,9 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cozinhas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                 <h3 className="text-white text-2xl font-medium mb-1">Cozinhas Gourmet</h3>
-                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+                 <h3 className="text-white text-2xl font-medium mb-1 relative">Cozinhas Gourmet</h3>
+                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
+                 <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
@@ -136,8 +138,9 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Salas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                 <h3 className="text-white text-2xl font-medium mb-1">Livings & Home</h3>
-                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+                 <h3 className="text-white text-2xl font-medium mb-1 relative">Livings & Home</h3>
+                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
+                 <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
@@ -146,8 +149,9 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1558442074-3c19857bc1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporativo" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                 <h3 className="text-white text-2xl font-medium mb-1">Corporativos</h3>
-                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+                 <h3 className="text-white text-2xl font-medium mb-1 relative">Corporativos</h3>
+                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
+                 <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
@@ -156,8 +160,9 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Edículas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                 <h3 className="text-white text-2xl font-medium mb-1">Áreas Externas</h3>
-                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+                 <h3 className="text-white text-2xl font-medium mb-1 relative">Áreas Externas</h3>
+                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
+                 <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
 
@@ -166,8 +171,9 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banheiros" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                 <h3 className="text-white text-2xl font-medium mb-1">Banheiros & Spas</h3>
-                 <span className="absolute left-8 bottom-8 w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
+                 <h3 className="text-white text-2xl font-medium mb-1 relative">Banheiros & Spas</h3>
+                 <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 mt-2 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 relative z-10">Ver Galeria <ArrowRight size={14}/></p>
+                 <span className="absolute left-8 top-[calc(100%-2rem)] w-0 h-[1px] bg-[#e9ad81] transition-all duration-500 group-hover:w-16"></span>
                </div>
             </div>
           </div>
