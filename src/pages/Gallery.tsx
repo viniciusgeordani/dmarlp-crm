@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, LayoutGrid, List } from 'lucide-react';
+import { Facebook, Instagram, LayoutDashboard } from 'lucide-react';
 
 const categories = [
   "Todos",
@@ -32,7 +32,6 @@ const projects = [
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState("Todos");
-  const [searchQuery, setSearchQuery] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -40,18 +39,15 @@ export default function Gallery() {
       setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
-    window.scrollTo(0, 0); // Start at top
+    window.scrollTo(0, 0);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const filteredProjects = projects.filter(project => {
-    const matchesCategory = activeCategory === "Todos" || project.category === activeCategory;
-    const matchesSearch = project.title.toLowerCase().includes(searchQuery.toLowerCase()) || project.category.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSearch;
+    return activeCategory === "Todos" || project.category === activeCategory;
   });
 
   return (
-    <div className="min-h-screen font-sans bg-white text-stone-900 selection:bg-[#004243] selection:text-white pb-32">
+    <div className="min-h-screen font-sans bg-white text-stone-900 selection:bg-[#004243] selection:text-white">
       
       {/* HEADER LUXO (Reutilizado do Institucional) */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-stone-200 ${isScrolled ? 'bg-white/80 backdrop-blur-md py-3 shadow-md' : 'bg-white py-5 shadow-sm'}`}>
@@ -106,22 +102,10 @@ export default function Gallery() {
       {/* FILTER BAR SECTION */}
       <section className="sticky top-[73px] md:top-[74px] z-40 bg-white border-b border-stone-200 py-4 shadow-sm">
         <div className="container mx-auto px-6 max-w-[1400px]">
-          <div className="flex flex-col md:flex-row items-center gap-4 justify-between">
+          <div className="flex flex-col md:flex-row items-center gap-4 justify-center">
             
-            {/* Search Input */}
-            <div className="relative w-full md:w-64 flex-shrink-0">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-stone-400" size={16} />
-              <input 
-                type="text" 
-                placeholder="Buscar projetos..." 
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-9 pr-4 py-2 border border-stone-200 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-[#004041] focus:border-[#004041] transition-all bg-stone-50 hover:bg-white"
-              />
-            </div>
-
             {/* Category Pills (Scrollable horizontally) */}
-            <div className="flex-1 w-full overflow-x-auto no-scrollbar pb-1 md:pb-0 hide-scroll-bar">
+            <div className="w-full overflow-x-auto no-scrollbar pb-1 md:pb-0 hide-scroll-bar flex justify-center">
               <div className="flex items-center gap-2 justify-start md:justify-center min-w-max px-1">
                 {categories.map((category) => (
                   <button
@@ -140,16 +124,6 @@ export default function Gallery() {
                   Mostrar mais
                 </button>
               </div>
-            </div>
-
-            {/* View Toggles */}
-            <div className="hidden md:flex items-center gap-1 bg-stone-50 border border-stone-200 p-1 rounded-lg flex-shrink-0">
-              <button className="p-1.5 bg-white shadow-sm rounded-md text-stone-800">
-                <LayoutGrid size={16} />
-              </button>
-              <button className="p-1.5 text-stone-400 hover:text-stone-800 transition-colors rounded-md">
-                <List size={16} />
-              </button>
             </div>
 
           </div>
@@ -175,7 +149,7 @@ export default function Gallery() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredProjects.map((project) => (
-              <div key={project.id} className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-stone-100 shadow-sm border border-stone-200 hover:shadow-lg transition-all duration-300 cursor-pointer">
+              <div key={project.id} className="group relative rounded-2xl overflow-hidden aspect-square bg-stone-100 shadow-sm border border-stone-200 hover:shadow-lg transition-all duration-300 cursor-pointer">
                 {/* Image */}
                 <img 
                   src={project.image} 
@@ -201,6 +175,61 @@ export default function Gallery() {
         </div>
       </section>
 
+      {/* FOOTER LUXO */}
+      <footer className="bg-stone-950 text-white pt-32 pb-12 mt-20">
+        <div className="container mx-auto px-6 max-w-[1400px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
+            
+            <div className="md:col-span-4">
+              <img src="https://dmarplanejados.com.br/wp-content/uploads/2025/02/LOGOMARCA_DMAR_19.02.png" alt="D'Mar Planejados" className="h-8 mb-8" />
+              <p className="text-stone-400 font-light leading-relaxed mb-8 text-sm max-w-sm">
+                A materialização da mais alta sofisticação em mobiliário sob medida. Mais do que móveis, a identidade do seu morar.
+              </p>
+              <div className="flex items-center gap-4">
+                <a href="https://instagram.com/dmarplanejados" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-stone-800 rounded-full flex items-center justify-center hover:border-stone-500 hover:text-white transition-all text-stone-500">
+                  <Instagram strokeWidth={1.5} size={16} />
+                </a>
+                <a href="https://facebook.com/dmarplanejados" target="_blank" rel="noopener noreferrer" className="w-10 h-10 border border-stone-800 rounded-full flex items-center justify-center hover:border-stone-500 hover:text-white transition-all text-stone-500">
+                  <Facebook strokeWidth={1.5} size={16} />
+                </a>
+              </div>
+            </div>
+
+            <div className="md:col-span-2 md:col-start-7">
+              <h4 className="text-xs uppercase tracking-[0.2em] text-[#e9ad81] mb-8 font-light">Navegação</h4>
+              <ul className="space-y-4">
+                <li><a href="/#sobre" className="text-stone-400 hover:text-white transition-colors text-sm font-light">O Manifesto</a></li>
+                <li><a href="/#ambientes" className="text-stone-400 hover:text-white transition-colors text-sm font-light">Coleções</a></li>
+                <li><Link to="/lp" className="text-stone-400 hover:text-white transition-colors text-sm font-light">Exclusividade</Link></li>
+              </ul>
+            </div>
+
+            <div id="lojas" className="md:col-span-4">
+              <h4 className="text-xs uppercase tracking-[0.2em] text-[#e9ad81] mb-8 font-light">Nossos Studios</h4>
+              <ul className="space-y-8">
+                <li>
+                  <p className="text-white text-sm tracking-widest uppercase mb-2">São Paulo</p>
+                  <p className="text-stone-400 font-light text-sm">Av. Ibirapuera, 1000<br/>CEP 04028-000, Moema - SP</p>
+                </li>
+                <li>
+                  <p className="text-white text-sm tracking-widest uppercase mb-2">Rio de Janeiro</p>
+                  <p className="text-stone-400 font-light text-sm">Av. Lúcio Costa, 500<br/>CEP 22620-170, Barra - RJ</p>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+          <div className="border-t border-stone-800 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-stone-500 font-light">
+            <p>&copy; {new Date().getFullYear()} D'Mar Planejados Premium. Todos os direitos reservados.</p>
+            <div className="flex items-center gap-6 mt-4 md:mt-0">
+               <Link to="/admin-painel-crm-dmar" className="hover:text-white transition-colors flex items-center gap-2">
+                 <LayoutDashboard size={12}/> Portal Arq/Lojista
+               </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
