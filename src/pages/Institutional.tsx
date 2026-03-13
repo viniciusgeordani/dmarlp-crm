@@ -102,7 +102,7 @@ export default function Institutional() {
 
 
       {/* AMBIENTES (Galeria Estilo Masonry / Luxo) */}
-      <section id="ambientes" className="pt-16 pb-32 bg-white">
+      <section id="ambientes" className="py-24 bg-white">
         <div className="container mx-auto px-6 max-w-[1400px]">
           
           <div className="text-center mb-16 max-w-3xl mx-auto">
@@ -181,13 +181,13 @@ export default function Institutional() {
       </section>
 
        {/* SOBRE NÓS / ESSÊNCIA */}
-      <section id="sobre" className="py-32 bg-stone-50">
+      <section id="sobre" className="py-24 bg-stone-50">
         <div className="container mx-auto px-6 max-w-[1400px]">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+          <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             
-            {/* Image (Left) - Square/Straight corners as requested */}
-            <div className="w-full lg:w-1/2">
-              <div className="relative aspect-square md:aspect-[4/5] lg:aspect-square w-full overflow-hidden">
+            {/* Image (Left) - Balanced size */}
+            <div className="w-full lg:w-5/12">
+              <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] w-full overflow-hidden">
                 <img 
                   src="https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                   alt="D'Mar Interiores" 
@@ -197,7 +197,7 @@ export default function Institutional() {
             </div>
 
             {/* Text Content (Right) */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-7/12">
               <div className="max-w-xl">
                 <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">CONHEÇA</span>
                 
