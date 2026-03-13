@@ -107,7 +107,7 @@ export default function Institutional() {
           
           <div className="text-center mb-24 max-w-3xl mx-auto">
              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">Coleções</span>
-             <h2 className="text-4xl md:text-5xl font-serif text-stone-900 mb-6">Explore nossos Ambientes</h2>
+             <h2 className="text-4xl md:text-5xl font-medium text-stone-900 mb-6">Explore nossos Ambientes</h2>
              <p className="text-stone-500 font-light text-lg">Inspire-se com soluções de design criadas para transcender tendências e abraçar o seu estilo de vida único.</p>
           </div>
 
@@ -117,7 +117,7 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Closets" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                 <h3 className="text-white text-3xl font-serif mb-2">Closets & Dormitórios</h3>
+                 <h3 className="text-white text-3xl font-medium mb-2">Closets & Dormitórios</h3>
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">Ver Detalhes <ArrowRight size={14}/></p>
                </div>
             </div>
@@ -127,7 +127,7 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Cozinhas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                 <h3 className="text-white text-3xl font-serif mb-2">Cozinhas Gourmet</h3>
+                 <h3 className="text-white text-3xl font-medium mb-2">Cozinhas Gourmet</h3>
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">Ver Detalhes <ArrowRight size={14}/></p>
                </div>
             </div>
@@ -137,7 +137,7 @@ export default function Institutional() {
                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Salas" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
                <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                 <h3 className="text-white text-3xl font-serif mb-2">Salas & Home Theater</h3>
+                 <h3 className="text-white text-3xl font-medium mb-2">Salas & Home Theater</h3>
                  <p className="text-white/80 font-light tracking-wide text-sm flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0">Ver Detalhes <ArrowRight size={14}/></p>
                </div>
             </div>
@@ -174,7 +174,7 @@ export default function Institutional() {
             
             <div className="order-1 lg:order-2 lg:pl-10">
               <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-6 block">Nossa Essência</span>
-              <h2 className="text-4xl md:text-5xl font-serif text-stone-900 leading-tight mb-10">
+              <h2 className="text-4xl md:text-5xl font-medium text-stone-900 leading-tight mb-10">
                 A perfeição <br/>mora nos <span className="italic text-[#004041]">detalhes</span>.
               </h2>
               
@@ -185,11 +185,11 @@ export default function Institutional() {
 
               <div className="grid grid-cols-2 gap-12 border-t border-stone-200 pt-10">
                  <div>
-                   <h4 className="text-5xl font-serif text-[#004041] mb-3">10<span className="text-xl">anos</span></h4>
+                   <h4 className="text-5xl font-medium text-[#004041] mb-3">10<span className="text-xl">anos</span></h4>
                    <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Garantia Total</p>
                  </div>
                  <div>
-                   <h4 className="text-5xl font-serif text-[#004041] mb-3">+2k</h4>
+                   <h4 className="text-5xl font-medium text-[#004041] mb-3">+2k</h4>
                    <p className="text-xs text-stone-500 uppercase tracking-widest font-light">Projetos Executados</p>
                  </div>
               </div>
