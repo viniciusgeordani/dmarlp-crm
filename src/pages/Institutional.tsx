@@ -186,33 +186,25 @@ export default function Institutional() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             {/* Dark Card (Left) */}
-            <div className="bg-[#004243] rounded-[2rem] p-10 md:p-14 relative overflow-hidden shadow-2xl">
+            <div className="bg-[#004243] rounded-[2rem] p-8 md:p-12 relative overflow-hidden shadow-xl">
               <div className="relative z-10">
                 <span className="text-[#e9ad81] font-light tracking-[0.2em] text-[10px] uppercase mb-4 block">Garantia D'Mar Móveis</span>
-                <h3 className="text-3xl md:text-4xl font-medium text-white leading-tight mb-8">
+                <h3 className="text-2xl md:text-3xl font-medium text-white leading-tight mb-8">
                   10 anos de segurança e pós-venda presente
                 </h3>
-                <p className="text-stone-300 font-light text-sm leading-relaxed mb-12 max-w-md">
-                  Nosso compromisso vai além da entrega. Nossa garantia protege seu investimento e garante acompanhamento real sempre que precisar.
+                <p className="text-stone-300 font-light text-xs leading-relaxed mb-10 max-w-sm">
+                  Nosso compromisso vai além da entrega. Nossa garantia protege seu investimento e garante acompanhamento real.
                 </p>
 
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-2xl">
-                    <p className="text-[#e9ad81] text-xs font-medium uppercase tracking-wider mb-2">Cobertura Ampla</p>
-                    <p className="text-stone-400 text-[11px] leading-relaxed">Estrutura, acabamento e ajustes técnicos.</p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl">
+                    <p className="text-[#e9ad81] text-[10px] font-medium uppercase tracking-wider mb-1">Cobertura Ampla</p>
+                    <p className="text-stone-400 text-[10px] leading-relaxed">Estrutura e acabamento.</p>
                   </div>
-                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-5 rounded-2xl">
-                    <p className="text-[#e9ad81] text-xs font-medium uppercase tracking-wider mb-2">Equipe Dedicada</p>
-                    <p className="text-stone-400 text-[11px] leading-relaxed">Atendimento técnico especializado e ágil.</p>
+                  <div className="bg-white/5 backdrop-blur-sm border border-white/10 p-4 rounded-xl">
+                    <p className="text-[#e9ad81] text-[10px] font-medium uppercase tracking-wider mb-1">Equipe Dedicada</p>
+                    <p className="text-stone-400 text-[10px] leading-relaxed">Suporte especializado.</p>
                   </div>
-                </div>
-              </div>
-
-              {/* Seal Overlay */}
-              <div className="absolute top-10 right-10 w-24 h-24 opacity-20 pointer-events-none">
-                <div className="relative w-full h-full flex items-center justify-center border-2 border-dashed border-white rounded-full">
-                  <span className="text-white font-bold text-2xl">10</span>
-                  <span className="absolute -bottom-1 text-white text-[8px] uppercase tracking-tighter">ANOS</span>
                 </div>
               </div>
             </div>
