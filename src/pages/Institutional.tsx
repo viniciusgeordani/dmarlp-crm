@@ -77,13 +77,15 @@ export default function Institutional() {
             alt="Ambiente de Luxo" 
             className="w-full h-full object-cover object-center scale-105 animate-[kenburns_20s_ease-out_infinite_alternate]"
           />
+          {/* Fundo radial BEM suave só atrás do texto */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.5)_0%,transparent_60%)]"></div>
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white font-light uppercase tracking-wide leading-tight mb-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white font-light uppercase tracking-wide leading-tight mb-8 drop-shadow-xl">
             Referência em<br />Móveis Planejados
           </h1>
-          <p className="text-white/90 text-base md:text-lg font-light mx-auto mb-12">
+          <p className="text-white text-base md:text-lg font-light mx-auto mb-12 drop-shadow-md">
             Há mais de uma década, transformando espaços com sofisticação e praticidade.
           </p>
           <div className="flex justify-center">
