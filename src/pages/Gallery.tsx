@@ -4,30 +4,28 @@ import { Facebook, Instagram, LayoutDashboard } from 'lucide-react';
 
 const categories = [
   "Todos",
-  "Área Gourmet",
-  "Clínica",
-  "Corredor",
-  "Cozinha",
-  "Escritório",
-  "Home Office",
-  "Dormitório",
-  "Banheiro"
+  "Dormitórios",
+  "Cozinhas Gourmet",
+  "Livings & Home",
+  "Corporativos",
+  "Áreas Externas",
+  "Banheiros & Spas"
 ];
 
 // Mock de projetos para a galeria
 const projects = [
-  { id: 1, title: 'Cozinha', category: 'Cozinha', image: 'https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 2, title: 'Clínica', category: 'Clínica', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 3, title: 'Sala de Jantar', category: 'Cozinha', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 4, title: 'Escritório', category: 'Escritório', image: 'https://images.unsplash.com/photo-1558442074-3c19857bc1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 5, title: 'Sala de Estar', category: 'Livings', image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 6, title: 'Quarto de Solteiro', category: 'Dormitório', image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 7, title: 'Cozinha Moderna', category: 'Cozinha', image: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 8, title: 'Home Office', category: 'Home Office', image: 'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 9, title: 'Cozinha Compacta', category: 'Cozinha', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 10, title: 'Quarto de Casal', category: 'Dormitório', image: 'https://images.unsplash.com/photo-1522771731478-44fb1014ccce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 11, title: 'Quarto Infantil', category: 'Dormitório', image: 'https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { id: 12, title: 'Home Theater', category: 'Home Office', image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 1, title: 'Dormitório Master', category: 'Dormitórios', image: 'https://images.unsplash.com/photo-1600607686527-6fb886090705?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 2, title: 'Cozinha com Ilha', category: 'Cozinhas Gourmet', image: 'https://images.unsplash.com/photo-1556910103-1c02745a872f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 3, title: 'Living Integrado', category: 'Livings & Home', image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 4, title: 'Escritório Executivo', category: 'Corporativos', image: 'https://images.unsplash.com/photo-1558442074-3c19857bc1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 5, title: 'Varanda Decorada', category: 'Áreas Externas', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 6, title: 'Spa Privativo', category: 'Banheiros & Spas', image: 'https://images.unsplash.com/photo-1620626011761-996317b8d101?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 7, title: 'Dormitório Infantil', category: 'Dormitórios', image: 'https://images.unsplash.com/photo-1505693314120-0d443867891c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 8, title: 'Cozinha Linear', category: 'Cozinhas Gourmet', image: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 9, title: 'Home Theater', category: 'Livings & Home', image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 10, title: 'Recepção', category: 'Corporativos', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 11, title: 'Área de Lazer', category: 'Áreas Externas', image: 'https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
+  { id: 12, title: 'Banheiro Clássico', category: 'Banheiros & Spas', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
 ];
 
 export default function Gallery() {
@@ -111,7 +109,7 @@ export default function Gallery() {
                   <button
                     key={category}
                     onClick={() => setActiveCategory(category)}
-                    className={`px-5 py-2 rounded-full text-xs font-medium transition-all duration-300 ${
+                    className={`px-5 py-2 rounded-full text-xs font-medium transition-all duration-300 flex-shrink-0 ${
                       activeCategory === category 
                         ? 'bg-[#4B3B34] text-white shadow-md' 
                         : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
@@ -120,9 +118,6 @@ export default function Gallery() {
                     {category}
                   </button>
                 ))}
-                <button className="px-5 py-2 rounded-full text-xs font-medium bg-white border border-stone-200 text-stone-600 hover:bg-stone-50 transition-all duration-300 shadow-sm">
-                  Mostrar mais
-                </button>
               </div>
             </div>
 
