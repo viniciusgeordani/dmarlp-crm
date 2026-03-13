@@ -70,7 +70,7 @@ export default function Institutional() {
       </header>
 
       {/* HERO SECTION (Abaixo do Header) */}
-      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
+      <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="/fotoprincipal02.png" 
