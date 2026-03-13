@@ -99,47 +99,6 @@ export default function Institutional() {
         </div>
       </section>
 
-      {/* CARDS DIFERENCIAIS (Sobrepostos) */}
-      <section className="relative z-20 -mt-12 md:-mt-16 px-4">
-        <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-0 items-center">
-            
-            {/* CARD 1 */}
-            <div className="bg-[#002f30] text-center p-12 md:p-14 shadow-xl transition-transform hover:-translate-y-2 duration-300">
-              <div className="flex justify-center mb-6">
-                 <Palette size={40} className="text-[#e9ad81]" strokeWidth={1} />
-              </div>
-              <h3 className="text-white text-xl font-serif mb-4 tracking-wide">Seu Estilo</h3>
-              <p className="text-white/70 font-light text-sm leading-relaxed">
-                Soluções práticas com qualidade e funcionalidade, entre outros benefícios, otimizando seu espaço.
-              </p>
-            </div>
-
-            {/* CARD 2 (Destaque Central) */}
-            <div className="bg-[#e9ad81] text-center p-14 md:p-16 shadow-2xl z-10 scale-100 md:scale-105 transition-transform hover:-translate-y-2 duration-300">
-              <div className="flex justify-center mb-6">
-                 <Gem size={44} className="text-[#004041]" strokeWidth={1} />
-              </div>
-              <h3 className="text-[#004041] text-2xl font-serif mb-4 tracking-wide">Sofisticada</h3>
-              <p className="text-[#004041]/80 font-light text-sm leading-relaxed">
-                Áreas totalmente personalizadas para você e/ou sua empresa, com um toque de sofisticação em todos os detalhes.
-              </p>
-            </div>
-
-            {/* CARD 3 */}
-            <div className="bg-[#002f30] text-center p-12 md:p-14 shadow-xl transition-transform hover:-translate-y-2 duration-300">
-              <div className="flex justify-center mb-6">
-                 <Ruler size={40} className="text-[#e9ad81]" strokeWidth={1} />
-              </div>
-              <h3 className="text-white text-xl font-serif mb-4 tracking-wide">Harmonia</h3>
-              <p className="text-white/70 font-light text-sm leading-relaxed">
-                Totalmente sob medida, milímetro a milímetro, com sofisticação e qualidade, adequada ao seu gosto.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
 
       {/* AMBIENTES (Galeria Estilo Masonry / Luxo) */}
       <section id="ambientes" className="py-32 bg-white">
