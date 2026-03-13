@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Star, Shield, Clock, MapPin, Instagram, Facebook, LayoutDashboard, ChevronRight, PaintBucket } from 'lucide-react';
-import logoBranca from '../assets/logobranca.png';
 
 export default function Institutional() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -157,7 +156,7 @@ export default function Institutional() {
         <div className="container mx-auto px-6 max-w-7xl">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
             <div className="lg:col-span-1">
-              <img src={logoBranca} alt="D'Mar Planejados" className="h-12 mb-6" />
+              <img src="https://dmarplanejados.com.br/wp-content/uploads/2025/02/LOGOMARCA_DMAR_19.02.png" alt="D'Mar Planejados" className="h-12 mb-6" />
               <p className="text-white/60 font-light leading-relaxed mb-6 text-sm">
                 Transformando ambientes e realizando sonhos através de projetos de alto padrão e design exclusivo.
               </p>
