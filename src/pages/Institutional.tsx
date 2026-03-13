@@ -31,7 +31,7 @@ export default function Institutional() {
 
       {/* HEADER LUXO (Estilo Referência) */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b border-stone-200 ${isScrolled ? 'bg-white/80 backdrop-blur-md py-3 shadow-md' : 'bg-white py-5 shadow-sm'}`}>
-        <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
+        <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-7xl flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Link to="/">
               <img 
@@ -101,9 +101,8 @@ export default function Institutional() {
       </section>
 
 
-      {/* AMBIENTES (Galeria Estilo Masonry / Luxo) */}
       <section id="ambientes" className="py-12 bg-white">
-        <div className="container mx-auto px-6 max-w-[1400px]">
+        <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-[1500px]">
           
           <div className="text-center mb-16 max-w-3xl mx-auto">
              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">CONHEÇA</span>
@@ -182,7 +181,7 @@ export default function Institutional() {
 
       {/* GARANTIA (Premium) */}
       <section id="garantia" className="py-12 bg-stone-50/50">
-        <div className="container mx-auto px-6 max-w-[1400px]">
+        <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-[1500px]">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             {/* Dark Card (Left) */}
@@ -244,7 +243,7 @@ export default function Institutional() {
 
        {/* SOBRE NÓS / ESSÊNCIA */}
       <section id="sobre" className="py-12 bg-stone-50">
-        <div className="container mx-auto px-6 max-w-[1400px]">
+        <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-[1500px]">
           <div className="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
             
             {/* Image (Left) - Balanced size */}
@@ -284,7 +283,7 @@ export default function Institutional() {
 
       {/* FOOTER LUXO */}
       <footer className="bg-[#004243] text-white pt-32 pb-12">
-        <div className="container mx-auto px-6 max-w-[1400px]">
+        <div className="container mx-auto px-6 md:px-16 lg:px-24 max-w-[1500px]">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-8 mb-24">
             
             <div className="md:col-span-4">
