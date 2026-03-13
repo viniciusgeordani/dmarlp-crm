@@ -70,7 +70,7 @@ export default function Institutional() {
       </header>
 
       {/* HERO SECTION (Abaixo do Header) */}
-      <section className="relative min-h-[75vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
+      <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-stone-900 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src="/fotoprincipal02.png" 
@@ -81,10 +81,10 @@ export default function Institutional() {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl text-white font-light uppercase tracking-wide leading-tight mb-8">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white font-light uppercase tracking-wide leading-tight mb-8">
             Referência em<br />Móveis Planejados
           </h1>
-          <p className="text-white/90 text-lg md:text-xl font-light mx-auto mb-12">
+          <p className="text-white/90 text-base md:text-lg font-light mx-auto mb-12">
             Há mais de uma década, transformando espaços com sofisticação e praticidade.
           </p>
           <div className="flex justify-center">
