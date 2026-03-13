@@ -102,12 +102,12 @@ export default function Institutional() {
 
 
       {/* AMBIENTES (Galeria Estilo Masonry / Luxo) */}
-      <section id="ambientes" className="py-32 bg-white">
+      <section id="ambientes" className="pt-16 pb-32 bg-white">
         <div className="container mx-auto px-6 max-w-[1400px]">
           
-          <div className="text-center mb-24 max-w-3xl mx-auto">
+          <div className="text-center mb-16 max-w-3xl mx-auto">
              <span className="text-[#e9ad81] font-light tracking-[0.2em] text-xs uppercase mb-4 block">CONHEÇA</span>
-             <h2 className="text-4xl md:text-5xl font-medium text-stone-900 mb-6 uppercase">NOSSOS AMBIENTES</h2>
+             <h2 className="text-2xl md:text-3xl tracking-widest font-medium text-stone-900 uppercase">NOSSOS AMBIENTES</h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
